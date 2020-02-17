@@ -9,11 +9,14 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 ### Dependencies
 
 * Needed libraries for the Python programming language:
-  * pytorch >= 1.0.1.post2
+  * pytorch == 1.0.1.post2
+  * tensorflow == 1.12.0
   * numpy
   * pandas
   * tensorboardX
+  * tensorboard
   * sklearn
+  * multiprocessing
 * gcc >= 4.8.5
 * Computing platform : Linux
 
