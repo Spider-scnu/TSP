@@ -10,7 +10,6 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 * Needed libraries for the Python programming language:
   * pytorch == 1.0.1.post2
-  * tensorflow == 1.12.0
   * tensorboardX
   * tensorboard
   * numpy
@@ -20,6 +19,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
   * matplotlib
   * seaborn
   * scipy
+  * pyconcorde
 * gcc >= 4.8.5
 * Computing platform : Linux
 
@@ -28,7 +28,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 * ***Trainset:*** **Att-GraphConvNet** is trained on two datasets respectively, **TSP20-dataset** and **TSP50-dataset** which could be downloaded from:
 
   * [TSP-20-trainset-downloading-link](https://drive.google.com/open?id=1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb)
-  * [TSP-50-trainset-downloading-link](https://drive.google.com/open?id=1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb)
+  * [TSP-50-trainset-downloading-link](https://drive.google.com/open?id=1VObdGvYa4k_QfrLPpYIO-tnKU431yRap)
 
   After decompressing trainsets, you can remove them into directories `./Att-GraphConvNet/data`.
 
@@ -49,20 +49,25 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 ### Usage
 
-Our method is made up of **Att-GraphConvNet** and **MCTS**. In our paper, **Att-GraphConvNet** is used to generate probabilistic heat maps which assist **MCTS** to solve **TSP**. First, .....; 
+Our method is made up of **Att-GraphConvNet** and **MCTS**. In our paper, **Att-GraphConvNet** is used to generate probabilistic heat maps which assist **MCTS** to solve **TSP**. 
 
-
-
-
-
-
-
-After generating heat maps, you can solve TSP instances with 20 nodes using **MCTS**:
+* First, you can run `train-20.ipynb` to train **Att-GraphConvNet** based on **TSP-20-trainset**. If want to train models based on your own dataset,  you just need to **modify the path of dataset** in `./Att-GraphConvNet/configs/tsp20.json`. By the way, you can run `test-20-50-100.ipynb` to generate heat maps for TSP20 using trained models which are released on [TSP-models-downloading-link](https://drive.google.com/open?id=1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4). Heat map files would be stored in directory `./Att-GraphConvNet/results/heatmap/tsp20`.  
+* After generating heat maps, you can solve TSP instances with 20 nodes using **MCTS** with **32 threads**:
 
 ```bash
 cd $download-dir 
-cp -r ./
+cp -r ./Att-GraphConvNet/results/heatmap/tsp20 ./MCTS/tsp-20-50-100/heatmap
 cd ./MCTS/tsp-20-50-100
-bash solve-20.sh 32
+bash solve-20.sh 32 # using 32 threads
 ```
 
+### Acknowledgements
+
+* ***Models:*** Our team also released **Att-GraphConvNet** models which are downloaded from: [TSP-models-downloading-link](https://drive.google.com/open?id=1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4)
+
+### Reference
+
+* [LKH](<http://akira.ruc.dk/~keld/research/LKH-3/>)
+* [pyconcorde](<https://github.com/jvkersch/pyconcorde>)
+* [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
+* [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
