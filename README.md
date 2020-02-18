@@ -67,7 +67,9 @@ bash solve-20.sh 32 # using 32 threads
 
 ### Reference
 
-* [LKH](<http://akira.ruc.dk/~keld/research/LKH-3/>)
-* [pyconcorde](<https://github.com/jvkersch/pyconcorde>)
-* [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
-* [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
+* **LK3** : [LKH3](<http://akira.ruc.dk/~keld/research/LKH-3/>)
+* **Concorde** : [pyconcorde](<https://github.com/jvkersch/pyconcorde>)
+* **Kool et al. 2019** : [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
+* **Joshi et al. 2019** : [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
+* **Deudon et al. 2018** : [Encode attend naviagte](<https://github.com/MichelDeudon/encode-attend-navigate>)
+
