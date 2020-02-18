@@ -8,6 +8,7 @@ For solving TSP instances with 20 nodes using **MCTS**:
 ```bash
 cd $download-dir
 cp -r $tsp20-heatmap-dir ./MCTS/tsp-20-50-100/heatmap
+cp -r $tsp20-testset-dir ./MCTS/tsp-20-50-100
 cd tsp-20-50-100
 bash solve-20.sh 32
 ```
