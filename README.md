@@ -56,6 +56,7 @@ Our method is made up of **Att-GraphConvNet** and **MCTS**. In our paper, **Att-
 
 ```bash
 cd $download-dir 
+cp -r $testset-dir ./MCTS/tsp-20-50-100
 cp -r ./Att-GraphConvNet/results/heatmap/tsp20 ./MCTS/tsp-20-50-100/heatmap
 cd ./MCTS/tsp-20-50-100
 bash solve-20.sh 32 # using 32 threads
@@ -67,9 +68,9 @@ bash solve-20.sh 32 # using 32 threads
 
 ### Reference
 
-* **LK3** : [LKH3](<http://akira.ruc.dk/~keld/research/LKH-3/>)
+* **Taillard & Helsgaun, 2019** : [LKH3](<http://akira.ruc.dk/~keld/research/LKH-3/>)
 * **Concorde** : [pyconcorde](<https://github.com/jvkersch/pyconcorde>)
-* **Kool et al. 2019** : [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
-* **Joshi et al. 2019** : [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
-* **Deudon et al. 2018** : [Encode attend naviagte](<https://github.com/MichelDeudon/encode-attend-navigate>)
+* **Kool et al., 2019** : [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
+* **Joshi et al., 2019** : [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
+* **Deudon et al., 2018** : [Encode attend naviagte](<https://github.com/MichelDeudon/encode-attend-navigate>)
 
