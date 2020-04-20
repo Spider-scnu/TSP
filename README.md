@@ -48,9 +48,9 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
   * Create link file
 
        `sudo gedit /etc/ld.so.conf.d/cuda.conf`
-    then add the following statement:
+      then add the following statement:
        `/usr/local/cuda/lib64`
-    finally run the command to make the file work:
+      finally run the command to make the file work:
        `sudo ldconfig`
 
 ### Dataset
@@ -100,6 +100,7 @@ bash solve-20.sh
 
 * **Taillard & Helsgaun, 2019** : [LKH3](<http://akira.ruc.dk/~keld/research/LKH-3/>)
 * **Concorde** : [pyconcorde](<https://github.com/jvkersch/pyconcorde>)
+* **Gurobi** : [gurobi](https://www.gurobi.com/documentation/9.0/examples/tsp_py.html)
 * **Kool et al., 2019** : [Attention learn to route](<https://github.com/wouterkool/attention-learn-to-route>)
 * **Joshi et al., 2019** : [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
 * **Deudon et al., 2018** : [Encode attend naviagte](<https://github.com/MichelDeudon/encode-attend-navigate>)
