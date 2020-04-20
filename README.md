@@ -36,9 +36,9 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
     then add the following two lines of statements **at the end of the file which is opened above**:
 
-  ​	 `export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}`
+  ​		 `export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}`
 
-  ​	`export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
+  ​		`export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
 
   * Set **environment variables** and dynamic link library
 
