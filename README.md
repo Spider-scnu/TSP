@@ -21,7 +21,37 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
   * scipy
   * pyconcorde
 * gcc >= 4.8.5
+* CUDA = 8.0
 * Computing platform : Linux
+
+### Configuration
+
+* If you want to run our MCTS programs, you need to install [CUDA-8.0](https://developer.nvidia.com/cuda-80-ga2-download-archive).
+
+* After install CUDA-8.0, we need to configure its environment variables, which follow the steps bellow:
+
+  * Add **environment variables** in .bashrc
+
+     `gedit ~/.bashrc`
+
+    then add the following two lines of statements **at the end of the file which is opened above**:
+      `export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}`
+      ` export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
+
+  * Set **environment variables** and dynamic link library
+
+       `sudo gedit /etc/profile`
+
+    then add the following statement **at the end**:
+       `export PATH=/usr/local/cuda/bin:$PATH`
+
+  * Create link file
+
+       `sudo gedit /etc/ld.so.conf.d/cuda.conf`
+    then add the following statement:
+       `/usr/local/cuda/lib64`
+    finally run the command to make the file work:
+       `sudo ldconfig`
 
 ### Dataset
 
@@ -52,14 +82,14 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 Our method is made up of **Att-GraphConvNet** and **MCTS**. In our paper, **Att-GraphConvNet** is used to generate probabilistic heat maps which assist **MCTS** to solve **TSP**. 
 
 * First, you can run `train-20.ipynb` to train **Att-GraphConvNet** based on **TSP-20-trainset**. If want to train models based on your own dataset,  you just need to **modify the path of dataset** in `./Att-GraphConvNet/configs/tsp20.json`. By the way, you can run `test-20-50-100.ipynb` to generate heat maps for TSP20 using trained models which are released on [TSP-models-downloading-link](https://drive.google.com/open?id=1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4). Heat map files would be stored in directory `./Att-GraphConvNet/results/heatmap/tsp20`.  
-* After generating heat maps, you can solve TSP instances with 20 nodes using **MCTS** with **32 threads**:
+* After generating heat maps, you can solve TSP instances with 20 nodes using **MCTS** with **single GPU**:
 
 ```bash
 cd $download-dir 
 cp -r $testset-dir ./MCTS/tsp-20-50-100
 cp -r ./Att-GraphConvNet/results/heatmap/tsp20 ./MCTS/tsp-20-50-100/heatmap
 cd ./MCTS/tsp-20-50-100
-bash solve-20.sh 32 # using 32 threads
+bash solve-20.sh
 ```
 
 ### Acknowledgements
