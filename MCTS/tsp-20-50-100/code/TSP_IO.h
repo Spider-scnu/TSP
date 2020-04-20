@@ -23,7 +23,7 @@ using namespace std;
 double Alpha=1;       //used in estimating the potential of each edge
 double Beta=10;       //used in back propagation
 double Param_H=10;   //used to control the number of sampling actions
-double Param_T=0.10;  	 //used to control the termination condition
+double Param_T=0.01;  	 //used to control the termination condition
 
 //#define Default_Random_Seed  (unsigned)time(NULL);
 #define Default_Random_Seed  489663920;    

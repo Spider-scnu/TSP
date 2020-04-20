@@ -4,6 +4,8 @@
 #include "TSP_2Opt.h"
 #include "TSP_MCTS.h"
 #include "TSP_Markov_Decision.h"
+#include "kernel.h"
+#include "Extra.h"
 
 // For TSP20-50-100-200-500-1000 instances
 void Solve_One_Instance(int Inst_Index)

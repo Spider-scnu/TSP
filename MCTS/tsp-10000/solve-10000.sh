@@ -5,7 +5,7 @@ rm -r ./test
 make
 
 Total_Instance_Num=(16)
-threads=$1
+threads=(1) # $1
 Temp_City_Num=(10000)
 Inst_Num_Per_Batch=$(($Total_Instance_Num/$threads))
 

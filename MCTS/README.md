@@ -10,20 +10,6 @@ cd $download-dir
 cp -r $tsp20-heatmap-dir ./MCTS/tsp-20-50-100/heatmap
 cp -r $tsp20-testset-dir ./MCTS/tsp-20-50-100
 cd tsp-20-50-100
-bash solve-20.sh 32
-```
-
-### Usage
-
-#### Multi-threads
-
-If solving TSP instances faster, you can make use full of CPUs. By default, we handle them based on 32 threads:
-
-```bash
-cd $download-dir
-cp -r $tsp20-heatmap-dir ./MCTS/tsp-20-50-100/heatmap
-cp -r $tsp20-testset-dir ./MCTS/tsp-20-50-100
-cd tsp-20-50-100
-bash solve-20.sh 32
+bash solve-20.sh
 ```
 
