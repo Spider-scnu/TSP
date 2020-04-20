@@ -27,33 +27,25 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 ### Configuration
 
 * If you want to run our MCTS programs, you need to install [CUDA-8.0](https://developer.nvidia.com/cuda-80-ga2-download-archive).
-
 * After install CUDA-8.0, we need to configure its environment variables, which follow the steps bellow:
 
-  * Add **environment variables** in .bashrc
+  * **First**, add **environment variables** in .bashrc
 
-     `gedit ~/.bashrc`
+     * `gedit ~/.bashrc`
+  * then add the following two lines of statements **at the end of the file which is opened above**:
+     * `export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}`
+     * `export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
+  * **Secondly**, set **environment variables** and dynamic link library
+     * `sudo gedit /etc/profile`
+  * then add the following statement **at the end**:
+     * `export PATH=/usr/local/cuda/bin:$PATH`
+  * **After that**, create link file
+       * `sudo gedit /etc/ld.so.conf.d/cuda.conf`
+  * then add the following statement:
+     * `/usr/local/cuda/lib64`
+  * **Finally**, run the command to make the file work:
+     * `sudo ldconfig`
 
-    then add the following two lines of statements **at the end of the file which is opened above**:
-
-  ​		 `export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}`
-
-  ​		`export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
-
-  * Set **environment variables** and dynamic link library
-
-       `sudo gedit /etc/profile`
-
-    then add the following statement **at the end**:
-       `export PATH=/usr/local/cuda/bin:$PATH`
-
-  * Create link file
-
-       `sudo gedit /etc/ld.so.conf.d/cuda.conf`
-      then add the following statement:
-       `/usr/local/cuda/lib64`
-      finally run the command to make the file work:
-       `sudo ldconfig`
 
 ### Dataset
 
