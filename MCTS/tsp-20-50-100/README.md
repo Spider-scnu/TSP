@@ -1,9 +1,15 @@
 # TSP-20-50-100
 
-For solving **TSP-20-50-100** instances with 20 nodes when you **have copied heat map files of TSP-20 into** `./heatmap`:
+Firstly, running the following code to **build a dynamic library of GPU operations**:
 
 ```bash
-bash solve-20.sh
+bash generate_lib.sh
 ```
 
-When planning to solve TSP instanes with 50 or 100 nodes, you could correspondingly replace the last command with `bash solve-50.sh` or `bash solve-100.sh ` and copy heat map files into `./heatmap`. After running commands, the results could be checked in dirs `results/20`, `results/50` and `results/100`.
+For solving **TSP-20-50-100** instances with **20 cities** when you **have copied heat map files of TSP-20 into** `./heatmap`:
+
+```bash
+bash solve-tsp20.sh
+```
+
+When planning to solve TSP instanes with **50** or **100 cities**, you could correspondingly replace the last command with `bash solve-tsp50.sh` or `bash solve-tsp100.sh ` and copy heat map files into `./heatmap`. After running commands, the results could be checked in dirs `results/result_20.txt`, `results/result_50.txt` and `results/result_100.txt`.
