@@ -83,6 +83,7 @@ cd $download-dir
 cp -r $testset-dir ./MCTS/tsp-20-50-100
 cp -r ./Att-GraphConvNet/results/heatmap/tsp20 ./MCTS/tsp-20-50-100/heatmap
 cd ./MCTS/tsp-20-50-100
+bash generate_lib.sh
 bash solve-20.sh
 ```
 

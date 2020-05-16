@@ -10,6 +10,7 @@ cd $download-dir
 cp -r $tsp20-heatmap-dir ./MCTS/tsp-20-50-100/heatmap
 cp -r $tsp20-testset-dir ./MCTS/tsp-20-50-100
 cd tsp-20-50-100
+bash generate_lib.sh
 bash solve-20.sh
 ```
 
