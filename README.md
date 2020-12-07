@@ -4,7 +4,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 ### Paper
 
-* If you want to get more details, please see our paper **Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances**, which is submitted to ICML2020. 
+* If you want to get more details, please see our paper **Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances**, which is submitted to AAAI2021. 
 
 ### Dependencies
 
