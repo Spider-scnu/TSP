@@ -1,4 +1,4 @@
-# ICML2020
+# AAAI2021
 
 This reposity is the source code for solving the **Traveling Salesman Problems (TSP)** using **Monte Carlo tree search (MCTS)** assisted by **Graph Convolutional Network with attention mechanism (Att-GraphConvNet)**.
 
