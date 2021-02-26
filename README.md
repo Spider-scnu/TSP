@@ -4,11 +4,11 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 ### Paper
 
-* If you want to get more details, please see our paper ["Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances"](https://arxiv.org/abs/2012.10658) by Zhang-Hua Fu[^1,2], Kai-Bin Qiu[^2] and Hongyuan Zha[^1,2], which is accepted by **AAAI2021**. 
+* If you want to get more details, please see our paper ["Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances"](https://arxiv.org/abs/2012.10658) by Zhang-Hua Fu ^1,2^, Kai-Bin Qiu ^2^ and Hongyuan Zha ^1,2^, which is accepted by **AAAI2021**. 
 
-   [^1] **Shenzhen Institute of Artificial Intelligence and Robotics for Society, Shenzhen, China **
+   ^1^ **Shenzhen Institute of Artificial Intelligence and Robotics for Society, Shenzhen, China **
 
-   [^2] **The Chinese University of Hong Kong, Shenzhen, China **
+   ^2^ **The Chinese University of Hong Kong, Shenzhen, China **
 
 ### Dependencies
 
@@ -104,3 +104,7 @@ bash solve-20.sh
 * **Joshi et al., 2019** : [Graph Convolutional Network](<https://github.com/chaitjo/graph-convnet-tsp> )
 * **Deudon et al., 2018** : [Encode attend naviagte](<https://github.com/MichelDeudon/encode-attend-navigate>)
 
+
+
+[^1,2]: 
+[^2]: 
