@@ -55,23 +55,23 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 * ***Trainset:*** **Att-GraphConvNet** is trained on two datasets respectively, **TSP20-dataset** and **TSP50-dataset** which could be downloaded from:
 
-  * [TSP-20-trainset-downloading-link](https://drive.google.com/open?id=1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb)
-  * [TSP-50-trainset-downloading-link](https://drive.google.com/open?id=1VObdGvYa4k_QfrLPpYIO-tnKU431yRap)
+  * [TSP-20-trainset-downloading-link](https://drive.google.com/file/d/1zfk5k4mIuSu8wZqZl9Zly5P9xnqPs8Bv/view?usp=sharing)
+  * [TSP-50-trainset-downloading-link](https://drive.google.com/file/d/1VObdGvYa4k_QfrLPpYIO-tnKU431yRap/view?usp=sharing)
 
   After decompressing trainsets, you can remove them into directories `./Att-GraphConvNet/data`.
 
 * ***Testset:*** Our metdod is tested on some datasets respectively, **TSP-20-50-100**, **TSP-200-500-100** and **TSP-10000** which could be downloaded from:
-  * [TSP-20-50-100-testset-downloading-link](https://drive.google.com/open?id=1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb)
-  * [TSP-200-500-1000-testset-downloading-link](https://drive.google.com/open?id=10vIDikHjvJ4WjpU3VXrIshhl6iVwohIh)
-  * [TSP-10000-testset-downloading-link](https://drive.google.com/open?id=1u0jvUSbU-cO0oXOt_JyyXElUtE9uWvNg)
+  * [TSP-20-50-100-testset-downloading-link](https://drive.google.com/file/d/1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb/view?usp=sharing)
+  * [TSP-200-500-1000-testset-downloading-link](https://drive.google.com/file/d/1HUp-IDM077Xx11U8fJxmPGPJNnLwYxbT/view?usp=sharing)
+  * [TSP-10000-testset-downloading-link](https://drive.google.com/file/d/1u0jvUSbU-cO0oXOt_JyyXElUtE9uWvNg/view?usp=sharing)
 
   After decompressing datasets, you can copy them into directories respectively, `./MCTS/tsp-20-50-100`, `./MCTS/tsp-200-500-1000` and `./MCTS/tsp-10000`. Besides, you can copy them into directories `./Att-GraphConvNet/data`.
 
 * ***Heatmap:*** Our team also published heat-map files and at the same time reader can download them from:
 
-  * [TSP-20-50-100-heatmap-downloading-link](https://drive.google.com/open?id=1ApYBCWC-6YSH2dShHjPNwVJ7v84NuQPa)
-  * [TSP-200-500-1000-heatmap-downloading-link](https://drive.google.com/open?id=1HUp-IDM077Xx11U8fJxmPGPJNnLwYxbT)
-  * [TSP-10000-heatmap-downloading-link](https://drive.google.com/open?id=1X343yGbhJ5ytErAuTCQil1AZazTzm5u_)
+  * [TSP-20-50-100-heatmap-downloading-link](https://drive.google.com/file/d/1ApYBCWC-6YSH2dShHjPNwVJ7v84NuQPa/view?usp=sharing)
+  * [TSP-200-500-1000-heatmap-downloading-link](https://drive.google.com/file/d/1HUp-IDM077Xx11U8fJxmPGPJNnLwYxbT/view?usp=sharing)
+  * [TSP-10000-heatmap-downloading-link](https://drive.google.com/file/d/1X343yGbhJ5ytErAuTCQil1AZazTzm5u_/view?usp=sharing)
 
   After decompressing heat-map files, you can copy them into directories respectively, `./MCTS/tsp-20-50-100/heatmap`, `./MCTS/tsp-200-500-1000/heatmap` and `./MCTS/tsp-10000/heatmap`. 
 
@@ -79,7 +79,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 Our method is made up of **Att-GraphConvNet** and **MCTS**. In our paper, **Att-GraphConvNet** is used to generate probabilistic heat maps which assist **MCTS** to solve **TSP**. 
 
-* First, you can run `train-20.ipynb` to train **Att-GraphConvNet** based on **TSP-20-trainset**. If want to train models based on your own dataset,  you just need to **modify the path of dataset** in `./Att-GraphConvNet/configs/tsp20.json`. By the way, you can run `test-20-50-100.ipynb` to generate heat maps for TSP20 using trained models which are released on [TSP-models-downloading-link](https://drive.google.com/open?id=1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4). Heat map files would be stored in directory `./Att-GraphConvNet/results/heatmap/tsp20`.  
+* First, you can run `train-20.ipynb` to train **Att-GraphConvNet** based on **TSP-20-trainset**. If want to train models based on your own dataset,  you just need to **modify the path of dataset** in `./Att-GraphConvNet/configs/tsp20.json`. By the way, you can run `test-20-50-100.ipynb` to generate heat maps for TSP20 using trained models which are released on [TSP-models-downloading-link](https://drive.google.com/file/d/1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4/view?usp=sharing). Heat map files would be stored in directory `./Att-GraphConvNet/results/heatmap/tsp20`.  
 * After generating heat maps, you can solve TSP instances with 20 nodes using **MCTS** with **single GPU**:
 
 ```bash
@@ -93,7 +93,7 @@ bash solve-20.sh
 
 ### Acknowledgements
 
-* ***Models:*** Our team also released **Att-GraphConvNet** models which are downloaded from: [TSP-models-downloading-link](https://drive.google.com/open?id=1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4)
+* ***Models:*** Our team also released **Att-GraphConvNet** models which are downloaded from: [TSP-models-downloading-link](https://drive.google.com/file/d/1CXckcsThmJQNfhPGvJJ-oRhvo_vVp1d4/view?usp=sharing)
 
 ### Reference
 
