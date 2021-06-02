@@ -28,7 +28,11 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 * CUDA = 8.0
 * Computing platform : Linux
 
+
+
 ### Configuration
+
+**Duing to the limit of platform and hardware, if you fail to build the environment of GPU, you could choose the CPU version of MCTS programs. We would finish the Readme.md of MCTS-CPUver as soon as possible!!!** 
 
 * If you want to run our MCTS programs, you need to install [CUDA-8.0](https://developer.nvidia.com/cuda-80-ga2-download-archive).
 * After install CUDA-8.0, we need to configure its environment variables, which follow the steps bellow:
