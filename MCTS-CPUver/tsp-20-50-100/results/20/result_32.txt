@@ -1,0 +1,598 @@
+Number_of_Instances_In_Current_Batch: 297
+
+Inst_Index:9704 	 City_Num:20 	 Concorde:3.923687 	 MCTS:3.923687 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 11 9 5 19 8 20 12 4 16 14 7 3 17 18 6 15 10 13 2 
+
+Inst_Index:9705 	 City_Num:20 	 Concorde:3.867225 	 MCTS:3.867225 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 11 17 2 4 15 13 10 5 12 7 8 16 6 9 20 3 18 14 
+
+Inst_Index:9706 	 City_Num:20 	 Concorde:3.993024 	 MCTS:3.993024 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 5 2 20 10 17 16 19 12 8 11 3 7 6 13 14 4 9 18 15 
+
+Inst_Index:9707 	 City_Num:20 	 Concorde:4.405614 	 MCTS:4.405614 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 10 9 14 15 11 19 20 13 7 18 5 3 6 4 8 17 2 16 12 
+
+Inst_Index:9708 	 City_Num:20 	 Concorde:3.753155 	 MCTS:3.753155 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 10 4 17 19 16 6 15 12 13 5 3 7 20 18 2 9 11 14 
+
+Inst_Index:9709 	 City_Num:20 	 Concorde:3.632726 	 MCTS:3.632726 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 5 3 9 11 10 2 7 12 13 19 4 6 14 16 17 8 20 15 18 
+
+Inst_Index:9710 	 City_Num:20 	 Concorde:4.125915 	 MCTS:4.125915 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 17 4 2 12 6 15 11 5 8 16 20 13 14 18 9 3 7 10 19 
+
+Inst_Index:9711 	 City_Num:20 	 Concorde:4.216545 	 MCTS:4.216553 Improve:-0.000008 	 Time:2.00 Seconds
+Solution: 1 9 11 5 3 13 8 15 20 2 6 16 18 12 14 19 4 10 17 7 
+
+Inst_Index:9712 	 City_Num:20 	 Concorde:4.058999 	 MCTS:4.058999 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 2 18 17 15 9 10 3 16 20 12 6 4 8 7 11 13 19 5 14 
+
+Inst_Index:9713 	 City_Num:20 	 Concorde:3.863411 	 MCTS:3.863411 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 20 8 3 16 11 18 2 14 12 10 4 9 19 6 5 17 7 15 
+
+Inst_Index:9714 	 City_Num:20 	 Concorde:3.622726 	 MCTS:3.622726 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 20 15 3 13 11 6 10 19 9 5 7 2 17 4 8 18 16 14 12 
+
+Inst_Index:9715 	 City_Num:20 	 Concorde:3.965220 	 MCTS:3.965220 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 10 18 9 17 8 16 4 6 7 19 13 12 14 20 5 2 11 3 15 
+
+Inst_Index:9716 	 City_Num:20 	 Concorde:3.756753 	 MCTS:3.753611 Improve:0.003142 	 Time:2.00 Seconds
+Solution: 1 11 12 17 2 6 14 8 13 10 18 9 5 16 3 20 15 19 7 4 
+
+Inst_Index:9717 	 City_Num:20 	 Concorde:3.789387 	 MCTS:3.789387 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 16 5 13 18 7 6 10 15 12 14 11 2 19 4 9 3 17 20 
+
+Inst_Index:9718 	 City_Num:20 	 Concorde:3.925105 	 MCTS:3.925105 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 7 6 10 2 12 15 16 4 18 9 11 5 8 13 19 3 17 20 14 
+
+Inst_Index:9719 	 City_Num:20 	 Concorde:4.487167 	 MCTS:4.487167 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 20 3 10 11 16 6 18 12 14 4 17 2 9 7 13 8 19 15 5 
+
+Inst_Index:9720 	 City_Num:20 	 Concorde:3.487335 	 MCTS:3.487335 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 3 8 10 6 16 2 5 14 4 15 7 9 19 17 20 12 13 11 
+
+Inst_Index:9721 	 City_Num:20 	 Concorde:4.012884 	 MCTS:4.012884 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 6 16 10 17 2 20 5 13 11 3 7 18 19 9 8 14 12 15 
+
+Inst_Index:9722 	 City_Num:20 	 Concorde:3.809875 	 MCTS:3.809875 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 8 7 20 16 5 4 11 12 9 13 19 15 10 18 17 2 6 14 3 
+
+Inst_Index:9723 	 City_Num:20 	 Concorde:3.525552 	 MCTS:3.525552 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 16 2 4 13 8 15 6 14 11 12 17 7 19 10 18 20 3 5 9 
+
+Inst_Index:9724 	 City_Num:20 	 Concorde:4.528317 	 MCTS:4.528317 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 16 3 15 20 13 8 9 5 4 11 10 14 6 7 18 12 2 19 17 
+
+Inst_Index:9725 	 City_Num:20 	 Concorde:3.887690 	 MCTS:3.887690 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 11 14 4 3 17 16 2 12 10 18 5 6 8 20 15 19 13 9 7 
+
+Inst_Index:9726 	 City_Num:20 	 Concorde:3.884378 	 MCTS:3.884378 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 17 12 2 10 8 16 9 13 11 15 4 20 18 6 7 19 14 5 
+
+Inst_Index:9727 	 City_Num:20 	 Concorde:3.498795 	 MCTS:3.498795 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 5 14 17 15 2 12 20 7 3 18 6 8 9 16 10 19 4 13 
+
+Inst_Index:9728 	 City_Num:20 	 Concorde:3.993470 	 MCTS:3.993470 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 5 11 19 20 10 16 3 2 15 4 17 8 13 14 6 18 7 12 
+
+Inst_Index:9729 	 City_Num:20 	 Concorde:4.114250 	 MCTS:4.114250 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 9 5 10 20 18 2 7 14 13 3 8 12 11 4 19 6 16 15 
+
+Inst_Index:9730 	 City_Num:20 	 Concorde:4.016331 	 MCTS:4.016331 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 20 5 18 17 9 11 13 15 16 12 14 8 3 6 7 4 2 10 
+
+Inst_Index:9731 	 City_Num:20 	 Concorde:3.402150 	 MCTS:3.402150 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 5 11 15 19 12 20 7 17 13 4 6 3 2 10 16 14 18 8 
+
+Inst_Index:9732 	 City_Num:20 	 Concorde:3.734034 	 MCTS:3.734034 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 8 10 11 16 9 6 19 12 18 4 2 5 13 17 14 15 3 7 20 
+
+Inst_Index:9733 	 City_Num:20 	 Concorde:3.717813 	 MCTS:3.717813 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 10 18 5 20 11 7 13 15 17 9 16 8 6 19 4 14 12 3 
+
+Inst_Index:9734 	 City_Num:20 	 Concorde:3.782113 	 MCTS:3.781690 Improve:0.000423 	 Time:2.00 Seconds
+Solution: 1 18 7 11 20 3 14 9 17 5 2 15 13 12 19 10 6 8 4 16 
+
+Inst_Index:9735 	 City_Num:20 	 Concorde:3.320087 	 MCTS:3.320087 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 7 14 15 4 12 5 13 2 17 20 6 9 16 19 3 11 10 18 
+
+Inst_Index:9736 	 City_Num:20 	 Concorde:3.624027 	 MCTS:3.624027 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 8 19 20 2 10 15 9 7 5 4 14 11 6 18 12 16 13 17 
+
+Inst_Index:9737 	 City_Num:20 	 Concorde:3.693511 	 MCTS:3.693511 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 11 16 13 14 8 18 2 17 3 15 12 5 10 20 6 4 7 9 19 
+
+Inst_Index:9738 	 City_Num:20 	 Concorde:4.007464 	 MCTS:4.007464 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 6 14 2 12 16 19 5 7 17 13 11 20 3 8 10 15 18 4 
+
+Inst_Index:9739 	 City_Num:20 	 Concorde:3.261184 	 MCTS:3.261184 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 19 16 15 3 12 5 13 8 14 18 7 4 6 17 10 2 9 11 20 
+
+Inst_Index:9740 	 City_Num:20 	 Concorde:4.159747 	 MCTS:4.159747 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 10 12 11 7 8 17 18 6 13 16 19 9 15 2 3 14 5 20 
+
+Inst_Index:9741 	 City_Num:20 	 Concorde:3.780936 	 MCTS:3.780936 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 3 6 17 16 15 5 9 18 14 8 10 19 20 7 4 2 11 13 
+
+Inst_Index:9742 	 City_Num:20 	 Concorde:3.888321 	 MCTS:3.888321 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 7 12 6 19 16 20 5 3 15 17 4 14 18 11 2 9 13 10 8 
+
+Inst_Index:9743 	 City_Num:20 	 Concorde:4.288563 	 MCTS:4.288563 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 16 20 15 6 4 8 7 12 13 18 11 3 14 2 19 5 9 17 
+
+Inst_Index:9744 	 City_Num:20 	 Concorde:4.101068 	 MCTS:4.101068 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 15 10 3 6 19 16 8 2 9 17 4 14 18 20 13 5 7 12 
+
+Inst_Index:9745 	 City_Num:20 	 Concorde:3.568649 	 MCTS:3.568649 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 15 11 3 19 17 4 18 14 2 7 6 16 8 12 13 10 20 5 9 
+
+Inst_Index:9746 	 City_Num:20 	 Concorde:3.933923 	 MCTS:3.933923 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 16 10 15 3 5 17 19 7 6 13 2 9 11 18 12 4 20 8 
+
+Inst_Index:9747 	 City_Num:20 	 Concorde:3.808481 	 MCTS:3.808481 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 5 16 11 14 9 4 6 2 3 17 18 15 20 12 19 13 7 10 
+
+Inst_Index:9748 	 City_Num:20 	 Concorde:4.079488 	 MCTS:4.079488 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 18 8 2 4 19 10 5 11 7 15 20 16 9 3 13 6 17 14 
+
+Inst_Index:9749 	 City_Num:20 	 Concorde:3.789198 	 MCTS:3.786715 Improve:0.002483 	 Time:2.00 Seconds
+Solution: 1 5 17 20 8 6 14 12 4 3 7 10 13 16 19 18 11 2 15 9 
+
+Inst_Index:9750 	 City_Num:20 	 Concorde:3.139305 	 MCTS:3.133224 Improve:0.006081 	 Time:2.00 Seconds
+Solution: 1 7 3 5 10 14 8 20 9 12 11 13 17 6 16 18 4 2 15 19 
+
+Inst_Index:9751 	 City_Num:20 	 Concorde:3.791009 	 MCTS:3.791009 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 2 7 15 10 4 5 17 20 16 13 11 19 6 8 14 18 12 3 9 
+
+Inst_Index:9752 	 City_Num:20 	 Concorde:3.879747 	 MCTS:3.879747 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 10 8 9 19 3 13 20 6 2 4 14 12 5 16 7 11 18 17 15 
+
+Inst_Index:9753 	 City_Num:20 	 Concorde:3.697270 	 MCTS:3.697270 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 14 13 10 11 15 20 17 2 19 8 16 9 5 12 7 4 3 6 18 
+
+Inst_Index:9754 	 City_Num:20 	 Concorde:4.183510 	 MCTS:4.183510 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 6 19 5 8 20 2 16 10 13 12 15 9 4 17 18 7 14 11 
+
+Inst_Index:9755 	 City_Num:20 	 Concorde:3.432420 	 MCTS:3.432420 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 13 11 20 8 7 2 18 17 15 10 16 4 6 12 14 9 3 5 
+
+Inst_Index:9756 	 City_Num:20 	 Concorde:3.994220 	 MCTS:3.994220 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 17 16 15 2 10 18 7 14 12 9 13 8 20 5 3 4 19 11 
+
+Inst_Index:9757 	 City_Num:20 	 Concorde:3.748371 	 MCTS:3.748371 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 6 4 15 7 13 19 11 16 10 12 3 2 14 20 5 18 17 9 
+
+Inst_Index:9758 	 City_Num:20 	 Concorde:3.704289 	 MCTS:3.700687 Improve:0.003601 	 Time:2.00 Seconds
+Solution: 1 18 19 11 17 15 9 14 3 7 20 8 6 12 2 10 4 13 5 16 
+
+Inst_Index:9759 	 City_Num:20 	 Concorde:3.371264 	 MCTS:3.371264 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 4 13 10 15 6 12 19 8 16 2 20 9 14 7 3 5 17 18 
+
+Inst_Index:9760 	 City_Num:20 	 Concorde:3.299847 	 MCTS:3.299847 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 20 18 7 15 2 4 14 5 3 12 10 11 17 16 6 9 8 19 
+
+Inst_Index:9761 	 City_Num:20 	 Concorde:3.909878 	 MCTS:3.909878 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 6 17 14 20 4 8 12 2 10 19 13 18 5 15 16 9 3 7 
+
+Inst_Index:9762 	 City_Num:20 	 Concorde:3.507881 	 MCTS:3.507881 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 7 6 4 13 16 17 9 18 5 12 11 20 3 2 8 15 19 10 14 
+
+Inst_Index:9763 	 City_Num:20 	 Concorde:3.237348 	 MCTS:3.237348 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 4 15 19 2 18 8 14 20 6 12 10 16 7 13 11 5 17 9 
+
+Inst_Index:9764 	 City_Num:20 	 Concorde:3.298877 	 MCTS:3.297520 Improve:0.001357 	 Time:2.00 Seconds
+Solution: 1 9 15 20 14 5 7 8 12 13 16 10 19 3 17 6 2 4 18 11 
+
+Inst_Index:9765 	 City_Num:20 	 Concorde:3.397963 	 MCTS:3.397963 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 4 11 20 18 19 3 13 16 10 2 7 8 5 15 17 14 12 9 6 
+
+Inst_Index:9766 	 City_Num:20 	 Concorde:3.979181 	 MCTS:3.979181 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 16 2 8 4 3 11 12 15 6 10 18 19 9 13 5 7 20 17 
+
+Inst_Index:9767 	 City_Num:20 	 Concorde:3.476833 	 MCTS:3.476833 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 13 5 16 9 10 18 3 19 4 7 15 20 11 12 8 2 17 6 
+
+Inst_Index:9768 	 City_Num:20 	 Concorde:3.477126 	 MCTS:3.475669 Improve:0.001458 	 Time:2.00 Seconds
+Solution: 1 15 12 7 5 2 10 11 4 14 18 13 9 20 3 6 17 8 19 16 
+
+Inst_Index:9769 	 City_Num:20 	 Concorde:3.626086 	 MCTS:3.626086 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 10 3 17 5 18 7 2 14 9 20 4 13 16 12 19 11 8 15 
+
+Inst_Index:9770 	 City_Num:20 	 Concorde:3.571274 	 MCTS:3.571274 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 20 10 8 3 6 17 4 12 9 14 15 7 2 11 13 19 18 16 5 
+
+Inst_Index:9771 	 City_Num:20 	 Concorde:3.728865 	 MCTS:3.728865 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 17 4 12 7 14 3 11 20 8 15 5 18 9 19 2 13 16 6 
+
+Inst_Index:9772 	 City_Num:20 	 Concorde:4.216012 	 MCTS:4.216012 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 15 10 6 12 14 8 16 5 19 3 9 20 13 4 2 18 7 11 
+
+Inst_Index:9773 	 City_Num:20 	 Concorde:4.103811 	 MCTS:4.103811 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 13 16 10 6 9 4 17 18 11 19 20 8 12 15 2 7 3 14 
+
+Inst_Index:9774 	 City_Num:20 	 Concorde:3.864192 	 MCTS:3.864192 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 11 15 19 14 3 13 16 7 8 12 10 6 9 2 5 17 20 4 
+
+Inst_Index:9775 	 City_Num:20 	 Concorde:3.607454 	 MCTS:3.607454 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 7 3 19 8 4 17 2 9 11 20 18 15 10 13 14 12 16 5 
+
+Inst_Index:9776 	 City_Num:20 	 Concorde:3.696144 	 MCTS:3.694562 Improve:0.001582 	 Time:2.00 Seconds
+Solution: 1 17 10 8 18 3 19 9 16 11 6 12 20 14 7 2 5 13 15 4 
+
+Inst_Index:9777 	 City_Num:20 	 Concorde:3.693407 	 MCTS:3.693407 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 12 18 9 11 3 10 2 14 15 19 16 8 5 4 7 20 17 6 
+
+Inst_Index:9778 	 City_Num:20 	 Concorde:3.989909 	 MCTS:3.989909 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 14 16 2 6 17 10 15 8 11 4 7 20 12 13 5 3 18 9 
+
+Inst_Index:9779 	 City_Num:20 	 Concorde:3.422797 	 MCTS:3.422797 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 13 17 8 19 20 5 4 3 11 9 6 14 15 16 2 10 18 7 
+
+Inst_Index:9780 	 City_Num:20 	 Concorde:3.884732 	 MCTS:3.881614 Improve:0.003118 	 Time:2.00 Seconds
+Solution: 1 12 4 6 9 7 18 14 17 20 10 5 8 16 13 15 2 3 19 11 
+
+Inst_Index:9781 	 City_Num:20 	 Concorde:3.763930 	 MCTS:3.760661 Improve:0.003269 	 Time:2.00 Seconds
+Solution: 1 11 17 10 15 4 19 13 3 8 18 6 20 14 7 16 5 2 12 9 
+
+Inst_Index:9782 	 City_Num:20 	 Concorde:4.326878 	 MCTS:4.326878 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 4 17 8 2 7 3 18 10 12 19 13 20 15 16 11 6 14 9 
+
+Inst_Index:9783 	 City_Num:20 	 Concorde:3.813956 	 MCTS:3.813956 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 7 20 8 2 16 9 6 13 15 4 5 10 17 19 18 14 11 3 12 
+
+Inst_Index:9784 	 City_Num:20 	 Concorde:3.966443 	 MCTS:3.966443 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 5 16 19 9 4 3 7 14 13 8 20 11 10 6 17 15 12 18 
+
+Inst_Index:9785 	 City_Num:20 	 Concorde:3.453190 	 MCTS:3.453190 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 16 9 6 19 13 4 8 12 5 14 18 2 17 15 11 7 20 3 
+
+Inst_Index:9786 	 City_Num:20 	 Concorde:3.799454 	 MCTS:3.799454 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 19 6 12 11 20 9 18 15 13 7 5 2 10 4 8 3 14 16 17 
+
+Inst_Index:9787 	 City_Num:20 	 Concorde:3.724103 	 MCTS:3.724103 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 14 16 13 3 11 4 6 8 7 15 19 5 18 20 10 9 17 2 12 
+
+Inst_Index:9788 	 City_Num:20 	 Concorde:3.998457 	 MCTS:3.998457 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 20 8 14 10 11 4 7 13 9 5 2 16 15 3 19 12 6 18 
+
+Inst_Index:9789 	 City_Num:20 	 Concorde:3.782644 	 MCTS:3.782644 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 3 8 9 6 16 10 11 13 14 7 15 20 18 17 4 12 19 5 
+
+Inst_Index:9790 	 City_Num:20 	 Concorde:3.843579 	 MCTS:3.843579 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 11 3 15 12 10 2 17 9 8 16 14 6 13 4 20 5 7 19 
+
+Inst_Index:9791 	 City_Num:20 	 Concorde:3.835303 	 MCTS:3.835303 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 5 4 2 10 16 11 8 19 17 18 13 20 9 7 15 12 6 14 3 
+
+Inst_Index:9792 	 City_Num:20 	 Concorde:3.751397 	 MCTS:3.751397 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 16 15 6 19 8 3 9 4 17 2 10 13 20 18 7 14 5 12 
+
+Inst_Index:9793 	 City_Num:20 	 Concorde:4.105516 	 MCTS:4.105516 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 3 15 7 17 12 13 8 18 6 9 14 2 5 19 4 11 16 20 10 
+
+Inst_Index:9794 	 City_Num:20 	 Concorde:4.172335 	 MCTS:4.172335 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 4 6 9 3 16 5 14 10 13 15 8 18 2 20 12 7 17 11 19 
+
+Inst_Index:9795 	 City_Num:20 	 Concorde:3.872100 	 MCTS:3.872100 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 20 3 2 6 12 9 8 16 14 19 18 5 4 7 17 10 15 13 
+
+Inst_Index:9796 	 City_Num:20 	 Concorde:3.868344 	 MCTS:3.868344 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 6 4 17 7 2 12 16 10 13 18 14 9 19 3 8 5 11 20 15 
+
+Inst_Index:9797 	 City_Num:20 	 Concorde:4.051708 	 MCTS:4.051708 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 7 3 15 18 4 6 8 12 20 19 16 17 13 10 14 2 9 5 11 
+
+Inst_Index:9798 	 City_Num:20 	 Concorde:3.831284 	 MCTS:3.831284 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 19 9 10 6 8 3 16 20 7 2 14 13 11 15 12 17 18 4 5 
+
+Inst_Index:9799 	 City_Num:20 	 Concorde:4.195395 	 MCTS:4.195395 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 20 9 18 2 3 5 6 10 12 14 15 13 8 17 16 19 7 11 
+
+Inst_Index:9800 	 City_Num:20 	 Concorde:4.109761 	 MCTS:4.109761 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 8 12 9 7 19 14 20 2 13 10 4 3 5 11 15 6 18 16 17 
+
+Inst_Index:9801 	 City_Num:20 	 Concorde:4.196535 	 MCTS:4.196535 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 9 11 20 4 7 13 15 5 3 12 10 18 2 8 17 14 16 19 
+
+Inst_Index:9802 	 City_Num:20 	 Concorde:3.836411 	 MCTS:3.836411 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 8 9 4 5 20 17 19 12 18 16 6 15 10 2 14 3 13 11 7 
+
+Inst_Index:9803 	 City_Num:20 	 Concorde:3.367893 	 MCTS:3.367893 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 10 9 6 7 2 15 19 4 12 16 14 13 18 3 8 17 11 5 20 
+
+Inst_Index:9804 	 City_Num:20 	 Concorde:3.753943 	 MCTS:3.753943 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 12 14 9 20 16 11 15 18 4 6 13 10 2 7 3 19 8 17 
+
+Inst_Index:9805 	 City_Num:20 	 Concorde:3.522263 	 MCTS:3.518390 Improve:0.003873 	 Time:2.00 Seconds
+Solution: 1 11 15 2 10 4 12 7 5 19 8 13 9 16 20 6 3 14 18 17 
+
+Inst_Index:9806 	 City_Num:20 	 Concorde:3.906996 	 MCTS:3.904997 Improve:0.001999 	 Time:2.00 Seconds
+Solution: 1 14 9 12 3 18 4 8 7 6 19 2 11 20 15 17 13 16 5 10 
+
+Inst_Index:9807 	 City_Num:20 	 Concorde:3.837901 	 MCTS:3.830881 Improve:0.007020 	 Time:2.00 Seconds
+Solution: 1 19 15 10 3 12 5 13 8 18 7 16 20 17 4 2 11 9 6 14 
+
+Inst_Index:9808 	 City_Num:20 	 Concorde:3.949320 	 MCTS:3.949320 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 15 19 6 7 11 5 18 4 9 12 2 20 16 3 17 8 14 10 
+
+Inst_Index:9809 	 City_Num:20 	 Concorde:4.292788 	 MCTS:4.292788 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 15 19 11 20 12 3 13 6 5 10 18 7 8 14 2 17 16 9 
+
+Inst_Index:9810 	 City_Num:20 	 Concorde:3.578962 	 MCTS:3.578962 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 11 5 18 8 13 4 9 17 12 2 6 3 14 15 10 7 16 19 20 
+
+Inst_Index:9811 	 City_Num:20 	 Concorde:3.630443 	 MCTS:3.630443 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 13 16 12 5 6 19 9 7 10 4 20 14 17 8 11 18 2 3 15 
+
+Inst_Index:9812 	 City_Num:20 	 Concorde:3.076107 	 MCTS:3.076107 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 8 3 20 18 13 10 16 7 17 6 14 4 15 11 19 2 9 12 
+
+Inst_Index:9813 	 City_Num:20 	 Concorde:3.893619 	 MCTS:3.893619 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 14 10 11 17 2 12 5 3 6 20 7 4 9 13 19 8 16 15 
+
+Inst_Index:9814 	 City_Num:20 	 Concorde:4.059340 	 MCTS:4.059340 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 2 14 12 5 6 15 7 13 11 16 9 10 4 3 20 19 8 17 
+
+Inst_Index:9815 	 City_Num:20 	 Concorde:4.165238 	 MCTS:4.165238 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 15 9 11 5 6 10 20 3 7 18 4 12 17 8 14 16 19 13 2 
+
+Inst_Index:9816 	 City_Num:20 	 Concorde:3.633978 	 MCTS:3.633978 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 15 12 6 19 4 18 3 9 14 16 11 7 17 2 8 20 5 13 
+
+Inst_Index:9817 	 City_Num:20 	 Concorde:3.519826 	 MCTS:3.519826 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 5 19 9 15 11 2 4 6 18 10 3 16 8 12 7 14 20 13 
+
+Inst_Index:9818 	 City_Num:20 	 Concorde:3.862309 	 MCTS:3.862309 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 5 16 14 18 2 3 19 8 7 10 4 20 9 6 15 12 17 13 11 
+
+Inst_Index:9819 	 City_Num:20 	 Concorde:3.720618 	 MCTS:3.720618 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 14 2 17 6 16 10 20 15 8 12 3 4 7 11 5 13 18 19 
+
+Inst_Index:9820 	 City_Num:20 	 Concorde:3.752655 	 MCTS:3.748424 Improve:0.004231 	 Time:2.00 Seconds
+Solution: 1 7 6 5 20 2 12 16 9 4 17 3 18 8 15 19 11 14 10 13 
+
+Inst_Index:9821 	 City_Num:20 	 Concorde:3.878213 	 MCTS:3.878213 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 3 9 18 11 8 17 20 13 10 16 7 6 12 19 5 2 15 14 
+
+Inst_Index:9822 	 City_Num:20 	 Concorde:4.134155 	 MCTS:4.133951 Improve:0.000204 	 Time:2.00 Seconds
+Solution: 1 3 19 12 16 10 4 15 7 6 17 2 14 13 18 11 20 8 9 5 
+
+Inst_Index:9823 	 City_Num:20 	 Concorde:4.176964 	 MCTS:4.176964 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 7 14 15 16 3 12 10 5 17 9 18 19 6 11 20 2 4 13 8 
+
+Inst_Index:9824 	 City_Num:20 	 Concorde:3.874449 	 MCTS:3.874449 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 4 9 2 15 7 5 11 8 17 19 16 3 10 13 20 6 12 18 14 
+
+Inst_Index:9825 	 City_Num:20 	 Concorde:3.675085 	 MCTS:3.675085 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 11 18 14 19 5 10 17 3 20 4 9 8 13 16 12 2 15 7 
+
+Inst_Index:9826 	 City_Num:20 	 Concorde:3.250644 	 MCTS:3.250644 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 3 4 11 16 20 10 5 12 6 15 9 8 7 14 19 2 13 18 
+
+Inst_Index:9827 	 City_Num:20 	 Concorde:3.903899 	 MCTS:3.903899 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 12 16 6 5 2 17 10 8 15 19 18 7 3 20 14 9 13 11 
+
+Inst_Index:9828 	 City_Num:20 	 Concorde:3.940823 	 MCTS:3.940823 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 18 2 5 16 8 14 9 3 12 7 17 20 10 15 13 4 6 11 19 
+
+Inst_Index:9829 	 City_Num:20 	 Concorde:3.737935 	 MCTS:3.737935 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 16 17 5 8 3 2 19 18 13 4 10 7 20 11 9 15 14 6 
+
+Inst_Index:9830 	 City_Num:20 	 Concorde:3.830544 	 MCTS:3.830544 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 18 13 7 12 20 11 4 14 10 8 3 19 16 9 6 17 2 15 5 
+
+Inst_Index:9831 	 City_Num:20 	 Concorde:4.276779 	 MCTS:4.276779 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 16 7 10 13 11 17 9 4 14 18 6 5 3 19 8 20 15 2 
+
+Inst_Index:9832 	 City_Num:20 	 Concorde:4.080350 	 MCTS:4.080146 Improve:0.000204 	 Time:2.00 Seconds
+Solution: 1 20 18 6 9 19 12 17 4 16 7 5 10 15 13 11 3 2 8 14 
+
+Inst_Index:9833 	 City_Num:20 	 Concorde:4.348955 	 MCTS:4.348955 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 16 5 14 2 6 11 7 3 12 10 19 9 15 18 4 13 20 8 17 
+
+Inst_Index:9834 	 City_Num:20 	 Concorde:3.794287 	 MCTS:3.794287 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 18 15 17 3 2 6 5 12 16 13 10 9 14 8 7 20 11 19 
+
+Inst_Index:9835 	 City_Num:20 	 Concorde:3.408472 	 MCTS:3.408472 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 19 14 17 11 5 8 13 18 6 20 9 2 12 15 16 3 7 4 
+
+Inst_Index:9836 	 City_Num:20 	 Concorde:3.996677 	 MCTS:3.996677 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 20 16 7 8 13 17 6 5 3 19 14 18 15 9 2 4 11 10 
+
+Inst_Index:9837 	 City_Num:20 	 Concorde:3.683028 	 MCTS:3.683028 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 19 14 9 17 8 3 6 5 7 4 16 13 18 20 11 15 10 12 
+
+Inst_Index:9838 	 City_Num:20 	 Concorde:4.089935 	 MCTS:4.089935 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 14 13 7 19 11 5 9 4 6 15 16 8 3 2 20 18 12 10 
+
+Inst_Index:9839 	 City_Num:20 	 Concorde:4.069021 	 MCTS:4.069021 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 18 4 11 20 5 7 13 2 15 16 19 3 10 14 12 17 8 6 
+
+Inst_Index:9840 	 City_Num:20 	 Concorde:3.984949 	 MCTS:3.984949 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 11 10 20 15 8 19 17 16 4 2 9 7 5 12 14 6 18 3 
+
+Inst_Index:9841 	 City_Num:20 	 Concorde:4.055223 	 MCTS:4.055223 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 6 19 2 14 20 11 18 17 13 12 4 15 16 7 5 10 9 3 
+
+Inst_Index:9842 	 City_Num:20 	 Concorde:3.504257 	 MCTS:3.504257 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 16 18 12 15 7 11 14 20 17 5 6 8 19 4 2 9 13 10 
+
+Inst_Index:9843 	 City_Num:20 	 Concorde:3.716633 	 MCTS:3.716633 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 11 6 12 18 14 2 13 16 20 3 10 5 15 7 9 19 8 17 
+
+Inst_Index:9844 	 City_Num:20 	 Concorde:4.422846 	 MCTS:4.422846 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 3 7 5 10 17 6 12 20 8 11 18 19 15 4 14 9 16 13 2 
+
+Inst_Index:9845 	 City_Num:20 	 Concorde:3.711473 	 MCTS:3.709405 Improve:0.002068 	 Time:2.00 Seconds
+Solution: 1 18 6 10 8 7 5 2 4 9 15 19 11 20 12 16 14 17 3 13 
+
+Inst_Index:9846 	 City_Num:20 	 Concorde:3.931725 	 MCTS:3.931725 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 8 10 15 7 14 2 6 18 19 9 11 3 17 4 20 13 12 16 
+
+Inst_Index:9847 	 City_Num:20 	 Concorde:3.897266 	 MCTS:3.897266 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 15 17 6 3 11 12 5 4 20 7 9 10 2 18 16 8 19 14 
+
+Inst_Index:9848 	 City_Num:20 	 Concorde:3.487923 	 MCTS:3.487923 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 14 7 6 10 13 15 20 12 16 17 19 2 4 18 5 8 9 3 
+
+Inst_Index:9849 	 City_Num:20 	 Concorde:3.746760 	 MCTS:3.746760 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 15 5 14 13 19 4 2 10 17 11 16 20 6 12 8 3 18 7 9 
+
+Inst_Index:9850 	 City_Num:20 	 Concorde:4.185678 	 MCTS:4.185678 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 20 19 8 5 17 16 4 18 7 13 10 12 3 14 11 2 9 6 15 
+
+Inst_Index:9851 	 City_Num:20 	 Concorde:3.569188 	 MCTS:3.569188 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 18 13 15 12 5 16 7 19 2 3 20 11 9 17 10 4 6 14 8 
+
+Inst_Index:9852 	 City_Num:20 	 Concorde:4.074706 	 MCTS:4.074706 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 8 12 2 7 19 20 5 4 11 3 10 17 14 13 16 9 15 18 
+
+Inst_Index:9853 	 City_Num:20 	 Concorde:3.972411 	 MCTS:3.972411 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 6 14 3 8 2 4 12 17 13 7 15 20 11 9 10 18 16 5 19 
+
+Inst_Index:9854 	 City_Num:20 	 Concorde:3.644458 	 MCTS:3.644458 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 11 18 19 2 5 10 9 20 17 6 13 15 16 12 3 14 8 7 
+
+Inst_Index:9855 	 City_Num:20 	 Concorde:3.915337 	 MCTS:3.915337 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 20 12 18 8 7 19 6 16 3 14 4 10 17 13 15 9 11 5 
+
+Inst_Index:9856 	 City_Num:20 	 Concorde:3.774872 	 MCTS:3.774872 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 7 20 14 6 2 17 3 5 13 8 11 10 4 18 12 9 16 15 
+
+Inst_Index:9857 	 City_Num:20 	 Concorde:4.120047 	 MCTS:4.120047 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 14 19 2 5 15 16 3 20 4 9 8 13 7 18 6 10 12 11 
+
+Inst_Index:9858 	 City_Num:20 	 Concorde:3.972077 	 MCTS:3.972077 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 5 6 20 13 9 12 15 7 8 17 3 14 18 4 16 11 10 2 
+
+Inst_Index:9859 	 City_Num:20 	 Concorde:4.201951 	 MCTS:4.201951 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 19 13 4 17 20 2 10 3 8 6 16 18 5 9 12 11 7 15 
+
+Inst_Index:9860 	 City_Num:20 	 Concorde:3.185346 	 MCTS:3.185346 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 5 20 3 19 10 9 2 16 6 18 11 12 8 15 7 17 4 13 
+
+Inst_Index:9861 	 City_Num:20 	 Concorde:4.533832 	 MCTS:4.533832 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 7 11 9 12 20 15 13 17 3 14 5 18 16 4 19 2 6 10 
+
+Inst_Index:9862 	 City_Num:20 	 Concorde:4.150878 	 MCTS:4.148218 Improve:0.002659 	 Time:2.00 Seconds
+Solution: 1 5 2 13 3 11 7 9 20 6 17 4 16 18 15 14 10 12 8 19 
+
+Inst_Index:9863 	 City_Num:20 	 Concorde:3.960603 	 MCTS:3.960603 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 4 9 17 12 11 2 20 13 14 5 10 6 16 15 18 3 8 19 7 
+
+Inst_Index:9864 	 City_Num:20 	 Concorde:3.518327 	 MCTS:3.518327 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 9 6 4 3 10 5 11 13 7 18 19 12 2 16 14 15 8 20 
+
+Inst_Index:9865 	 City_Num:20 	 Concorde:4.043130 	 MCTS:4.043130 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 12 6 16 13 14 20 5 10 15 2 3 19 8 7 4 11 9 18 
+
+Inst_Index:9866 	 City_Num:20 	 Concorde:3.545821 	 MCTS:3.545821 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 6 19 18 11 4 17 5 12 8 15 13 3 7 10 9 14 2 20 16 
+
+Inst_Index:9867 	 City_Num:20 	 Concorde:3.556519 	 MCTS:3.550958 Improve:0.005561 	 Time:2.00 Seconds
+Solution: 1 5 19 12 17 9 2 18 16 15 8 6 3 7 13 14 10 4 11 20 
+
+Inst_Index:9868 	 City_Num:20 	 Concorde:3.878314 	 MCTS:3.876352 Improve:0.001962 	 Time:2.00 Seconds
+Solution: 1 16 10 13 8 18 3 12 14 20 11 6 4 2 7 15 17 9 5 19 
+
+Inst_Index:9869 	 City_Num:20 	 Concorde:3.799596 	 MCTS:3.799596 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 14 5 10 4 16 11 8 17 6 3 12 13 19 7 18 2 20 9 15 
+
+Inst_Index:9870 	 City_Num:20 	 Concorde:3.471219 	 MCTS:3.471219 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 10 9 6 11 3 7 16 17 20 13 19 15 8 12 18 2 4 5 14 
+
+Inst_Index:9871 	 City_Num:20 	 Concorde:3.692081 	 MCTS:3.692081 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 12 11 18 20 16 9 7 15 5 6 19 13 3 14 10 17 8 4 
+
+Inst_Index:9872 	 City_Num:20 	 Concorde:4.262867 	 MCTS:4.262867 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 19 2 13 20 6 12 15 17 10 9 4 5 11 14 8 3 16 18 7 
+
+Inst_Index:9873 	 City_Num:20 	 Concorde:3.800746 	 MCTS:3.800746 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 15 6 16 7 3 13 18 8 20 5 17 19 2 9 14 10 12 11 4 
+
+Inst_Index:9874 	 City_Num:20 	 Concorde:3.919693 	 MCTS:3.919693 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 14 13 11 10 6 18 5 15 20 19 7 9 17 2 16 3 4 8 
+
+Inst_Index:9875 	 City_Num:20 	 Concorde:4.196157 	 MCTS:4.196157 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 12 7 18 10 5 11 8 19 16 14 9 6 13 2 4 17 20 3 15 
+
+Inst_Index:9876 	 City_Num:20 	 Concorde:3.907446 	 MCTS:3.907446 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 19 15 16 6 2 3 7 4 13 14 18 17 20 11 9 8 5 10 12 
+
+Inst_Index:9877 	 City_Num:20 	 Concorde:3.748149 	 MCTS:3.748149 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 17 4 12 3 16 15 13 18 6 11 19 7 2 20 9 5 10 8 14 
+
+Inst_Index:9878 	 City_Num:20 	 Concorde:3.759394 	 MCTS:3.759394 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 3 14 16 17 20 19 7 9 4 5 12 8 6 18 11 13 15 10 
+
+Inst_Index:9879 	 City_Num:20 	 Concorde:3.661753 	 MCTS:3.661753 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 2 11 10 18 7 14 19 8 17 5 4 3 16 15 12 20 6 13 
+
+Inst_Index:9880 	 City_Num:20 	 Concorde:3.950678 	 MCTS:3.950409 Improve:0.000268 	 Time:2.00 Seconds
+Solution: 1 20 9 6 13 15 8 5 12 17 2 4 11 14 16 3 19 10 18 7 
+
+Inst_Index:9881 	 City_Num:20 	 Concorde:3.615916 	 MCTS:3.615916 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 6 13 15 7 14 17 10 11 4 19 9 12 18 3 20 2 5 16 8 
+
+Inst_Index:9882 	 City_Num:20 	 Concorde:3.033255 	 MCTS:3.033255 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 9 10 16 18 12 19 11 4 3 5 17 8 20 14 6 15 2 13 7 
+
+Inst_Index:9883 	 City_Num:20 	 Concorde:4.095330 	 MCTS:4.095330 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 2 20 4 19 6 17 7 15 9 3 8 12 18 5 16 11 13 10 14 
+
+Inst_Index:9884 	 City_Num:20 	 Concorde:3.801585 	 MCTS:3.801585 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 10 17 16 4 14 12 9 7 13 3 20 2 5 18 15 19 8 6 
+
+Inst_Index:9885 	 City_Num:20 	 Concorde:3.943858 	 MCTS:3.943858 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 10 9 14 12 5 20 8 16 7 6 2 11 13 15 3 19 17 18 
+
+Inst_Index:9886 	 City_Num:20 	 Concorde:3.861900 	 MCTS:3.861900 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 17 9 12 13 19 16 8 6 10 7 4 14 18 20 11 3 5 15 2 
+
+Inst_Index:9887 	 City_Num:20 	 Concorde:4.082012 	 MCTS:4.082012 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 13 15 10 17 12 14 4 3 18 19 2 20 11 5 7 8 9 6 16 
+
+Inst_Index:9888 	 City_Num:20 	 Concorde:3.657046 	 MCTS:3.657046 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 3 10 6 20 15 14 5 18 17 9 8 12 7 11 16 13 2 19 
+
+Inst_Index:9889 	 City_Num:20 	 Concorde:3.485060 	 MCTS:3.485060 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 20 8 10 19 13 5 6 14 16 11 9 15 2 7 12 18 3 4 17 
+
+Inst_Index:9890 	 City_Num:20 	 Concorde:3.848199 	 MCTS:3.848199 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 7 5 16 3 10 13 6 18 9 15 2 14 19 12 4 17 11 8 20 
+
+Inst_Index:9891 	 City_Num:20 	 Concorde:3.804630 	 MCTS:3.804630 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 3 15 12 19 17 2 4 13 14 20 10 16 7 18 8 5 9 6 11 
+
+Inst_Index:9892 	 City_Num:20 	 Concorde:4.135443 	 MCTS:4.135443 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 16 9 13 12 2 15 8 17 5 6 20 3 7 11 4 18 19 14 10 
+
+Inst_Index:9893 	 City_Num:20 	 Concorde:3.647019 	 MCTS:3.647019 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 5 16 4 14 6 11 3 8 12 10 13 2 18 7 20 19 15 17 9 
+
+Inst_Index:9894 	 City_Num:20 	 Concorde:3.987372 	 MCTS:3.987372 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 20 17 8 13 14 18 2 19 11 12 10 15 16 6 9 7 5 3 
+
+Inst_Index:9895 	 City_Num:20 	 Concorde:3.402309 	 MCTS:3.402309 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 20 7 14 13 3 2 15 12 19 4 11 8 17 18 16 6 10 5 9 
+
+Inst_Index:9896 	 City_Num:20 	 Concorde:4.183098 	 MCTS:4.183098 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 14 10 16 17 18 4 8 7 3 13 15 9 12 11 2 5 19 20 6 
+
+Inst_Index:9897 	 City_Num:20 	 Concorde:3.825443 	 MCTS:3.823577 Improve:0.001866 	 Time:2.00 Seconds
+Solution: 1 19 5 4 10 2 6 13 20 7 16 3 8 17 14 12 15 9 11 18 
+
+Inst_Index:9898 	 City_Num:20 	 Concorde:4.057713 	 MCTS:4.057713 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 4 16 18 3 6 13 10 8 20 17 12 15 9 7 5 2 19 14 11 
+
+Inst_Index:9899 	 City_Num:20 	 Concorde:3.510744 	 MCTS:3.510744 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 11 13 14 19 18 20 8 2 9 15 6 12 3 16 7 4 10 17 5 
+
+Inst_Index:9900 	 City_Num:20 	 Concorde:3.436489 	 MCTS:3.436489 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 12 7 17 14 11 9 13 3 16 20 5 19 10 8 2 15 6 4 18 
+
+Inst_Index:9901 	 City_Num:20 	 Concorde:4.035464 	 MCTS:4.035464 Improve:0.000000 	 Time:2.00 Seconds
+Solution: 1 8 17 16 18 10 15 12 11 5 9 14 7 2 4 6 3 13 19 20 
+
+Inst_Index:9902 	 City_Num:20 	 Concorde:4.230674 	 MCTS:4.230674 Improve:-0.000000 	 Time:2.00 Seconds
+Solution: 1 18 16 17 3 8 9 19 11 10 20 7 15 6 13 12 14 5 4 2 

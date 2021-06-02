@@ -1,0 +1,11 @@
+Number_of_Instances_In_Current_Batch: 2
+
+Inst_Index:5 	 City_Num:100 	 Concorde:8.045571 	 MCTS:8.045571 Improve:-0.000000 	 Time:10.00 Seconds
+Solution: 1 81 95 18 76 98 33 97 59 49 10 82 61 48 99 37 15 34 77 13 50 87 8 26 75 47 70 83 31 64 73 91 39 36 88 23 25 11 65 21 68 62 24 20 100 6 45 32 89 5 80 44 92 58 30 69 29 17 53 9 66 12 60 63 19 7 52 27 40 2 93 51 78 55 16 41 71 94 46 42 84 57 14 43 54 90 79 72 22 85 74 38 96 35 67 28 56 3 4 86 
+
+Inst_Index:6 	 City_Num:100 	 Concorde:7.243571 	 MCTS:7.238635 Improve:0.004936 	 Time:10.01 Seconds
+Solution: 1 92 38 86 69 91 67 74 70 35 73 14 79 47 34 16 28 33 87 53 46 60 2 30 75 89 49 88 94 59 51 31 36 42 63 6 76 54 4 82 98 80 48 64 18 10 37 55 97 78 26 21 95 7 40 32 45 8 29 68 90 13 84 72 100 61 39 5 22 93 81 23 25 77 83 52 71 99 56 12 62 19 17 27 24 43 41 58 9 96 11 20 66 57 85 44 65 3 50 15 
+
+
+Avg_Concorde_Distance: 7.644571 Avg_MCTS_Distance: 7.642103 Avg_Gap: -0.000341 Total_Time: 129.58 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 1 Miss_Best_Known_Times: 0 
