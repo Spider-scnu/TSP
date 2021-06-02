@@ -14,8 +14,8 @@ g++ -lstdc++ -std=c++11 -fPIC -fvisibility=hidden -o  TSP.o -c TSP.cpp  -I/usr/l
 
 g++ -lstdc++ -std=c++11 -fPIC -o test TSP.o kernel.o -L. -L/usr/local/cuda-9.0/lib64/ -lcudart -lcuda -lpthread -lm -ldl
 
-threads=(1)
-GPUNum=(1)
+threads=(4)
+GPUNum=(8)
 CityNum=(20)
 for ((j=0;j<$GPUNum;j++));do
 {

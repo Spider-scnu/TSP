@@ -1,19 +1,20 @@
 #include "kernel.h"
 
-__global__ void MCTS_Init_GPU(int *Current_Instance_Best_Distance_G, double* Weight_G, int* Chosen_Times_G, int* Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num)
+__global__ void MCTS_Init_GPU(double* Edge_Heatmap_G, int *Current_Instance_Best_Distance_G, double* Weight_G, int* Chosen_Times_G, int* Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num)
 {
 	int idx = blockDim.x*blockIdx.x + threadIdx.x;
 	for (int i = 0; i < Virtual_City_Num; i++)
 	{
 		for (int j = 0; j < Virtual_City_Num; j++)
 		{
-			Weight_G[idx * Total_thread_num + i * Virtual_City_Num + j] = 1;
+			Weight_G[idx * Total_thread_num + i * Virtual_City_Num + j] = Edge_Heatmap_G[i * Virtual_City_Num + j] * 100;//1;
 			Chosen_Times_G[idx * Total_thread_num + i * Virtual_City_Num + j] = 0;
 			//printf("%d %f %d\n", idx * Total_thread_num + i * Virtual_City_Num + j, Weight_G[idx * Total_thread_num + i * Virtual_City_Num + j], Chosen_Times_G[idx * Total_thread_num + i * Virtual_City_Num + j]);
 		}
 	}
 	Current_Instance_Best_Distance_G[idx] = Inf_Cost;
 	Total_Simulation_Times_G[idx] = 0;
+	//printf("MCTS_Init_GPU \n");
 }
 
 __global__ void Get_Init_Solution_GPU(Struct_Node *All_Node_G, int Virtual_City_Num)
@@ -107,22 +108,30 @@ __device__ void Reverse_Sub_Path_GPU(int First_City, int Second_City, Struct_Nod
 {
 	int Cur_City = First_City;
 	int Temp_Next_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City;
-
-	while (true)
+	int Temp_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City;
+	All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City;
+	All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City = Temp_City;
+	if(All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City==-1){
+		printf("All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City = %d. \n", All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City);
+	}
+	while (Cur_City != Second_City)
 	{
-		int Temp_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City;
-		All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City;
-		All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City = Temp_City;
+		
 
-		if (Cur_City == Second_City)
-			break;
+		/*if (Cur_City == Second_City)
+			break;*/
 
 		Cur_City = Temp_Next_City;
 		Temp_Next_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City;
+		
+		Temp_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City;
+		All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City = All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City;
+		All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City = Temp_City;
 	}
 }
 
-__device__ void Apply_2Opt_Move_GPU(double *Weight_G, int *Total_Simulation_Times_G, int Total_thread_num, int *Distance_G, int threadid, int Virtual_City_Num, Struct_Node *All_Node_G, int First_City, int Second_City, int *Chosen_Times_G)
+__device__ void Apply_2Opt_Move_GPU(double *Weight_G, int *Total_Simulation_Times_G, int Total_thread_num, int *Distance_G,
+ int threadid, int Virtual_City_Num, Struct_Node *All_Node_G, int First_City, int Second_City, int *Chosen_Times_G)
 {
 	int Before_Distance = Get_Solution_Total_Distance_GPU(Distance_G, threadid, Virtual_City_Num, All_Node_G);
 	int Delta = Get_2Opt_Delta_GPU(Distance_G, Total_Simulation_Times_G, Total_thread_num, threadid, Virtual_City_Num, First_City, Second_City, All_Node_G, Chosen_Times_G);
@@ -147,18 +156,30 @@ __device__ void Apply_2Opt_Move_GPU(double *Weight_G, int *Total_Simulation_Time
 __device__ bool Improve_By_2Opt_Move_GPU(int threadid, double *Weight_G, int *Distance_G, int *Total_Simulation_Times_G, int Virtual_City_Num, int Cur_thread_id, int *Candidate_Num_G, int *Candidate_G, int Total_thread_num, Struct_Node *All_Node_G, int *Chosen_Times_G)
 {
 	bool If_Improved = false;
+	//printf("Starting to local search. Virtual_City_Num = %d\n", Virtual_City_Num);
 	for (int i = 0; i<Virtual_City_Num; i++)
+	{
+		//printf("Starting to local search Step-0, Candidate_Num = %d.\n", Candidate_Num_G[threadid * Virtual_City_Num + i]);
+		//Candidate_Num_G[threadid * Virtual_City_Num + i] = 0;
+		//printf("Starting to local search Step-0, Candidate_Num = %d.\n", Candidate_Num_G[threadid * Virtual_City_Num + i]);
 		for (int j = 0; j<Candidate_Num_G[threadid * Virtual_City_Num + i]; j++)
 		{
+			//printf("Starting to local search Step-1.\n");
 			int Candidate_City = Candidate_G[Cur_thread_id*Total_thread_num + i*Max_Candidate_Num + j];
+			//printf("Starting to local search Step-2.\n");
+			// Step-3
+			
+			//printf("Output = %d\n", Get_2Opt_Delta_GPU(Distance_G, Total_Simulation_Times_G, Total_thread_num, Cur_thread_id, Virtual_City_Num, i, Candidate_City, All_Node_G, Chosen_Times_G));
 			if (Get_2Opt_Delta_GPU(Distance_G, Total_Simulation_Times_G, Total_thread_num, Cur_thread_id, Virtual_City_Num, i, Candidate_City, All_Node_G, Chosen_Times_G)>0)
 			{
+				//printf("Starting to local search Step-3.\n");
 				Apply_2Opt_Move_GPU(Weight_G, Total_Simulation_Times_G, Total_thread_num, Distance_G, Cur_thread_id, Virtual_City_Num, All_Node_G, i, Candidate_City, Chosen_Times_G);
 				If_Improved = true;
 				break;
 			}
+			//printf("Finishing. \n");
 		}
-
+	}
 	return If_Improved;
 }
 
@@ -172,11 +193,17 @@ __device__ void Store_Best_Solution_GPU(int idx, int Virtual_City_Num, Struct_No
 	}
 }
 
-__global__ void Local_Search_by_2Opt_Move_GPU(Struct_Node *Best_All_Node_G, double *Weight_G, int *Distance_G, int *Total_Simulation_Times_G, int Virtual_City_Num, int *Candidate_Num_G, int *Candidate_G, int Total_thread_num, Struct_Node *All_Node_G, int *Chosen_Times_G, int *Current_Instance_Best_Distance_G)
+__global__ void Local_Search_by_2Opt_Move_GPU(Struct_Node *Best_All_Node_G, double *Weight_G, int *Distance_G,
+	int *Total_Simulation_Times_G, int Virtual_City_Num, int *Candidate_Num_G, int *Candidate_G, int Total_thread_num,
+	Struct_Node *All_Node_G, int *Chosen_Times_G, int *Current_Instance_Best_Distance_G)
 {
 	int index = blockDim.x * blockIdx.x + threadIdx.x;
+	//printf("ThreadID-1 = %d\n", index);
+	
 	while (Improve_By_2Opt_Move_GPU(index, Weight_G, Distance_G, Total_Simulation_Times_G, Virtual_City_Num, index, Candidate_Num_G, Candidate_G, Total_thread_num, All_Node_G, Chosen_Times_G) == true)
 		;
+		
+	//printf("ThreadID-2 = %d\n", index);
 	//printf("%d\n", Current_Instance_Best_Distance_G[index]);
 	int Cur_Solution_Total_Distance = Get_Solution_Total_Distance_GPU(Distance_G, index, Virtual_City_Num, All_Node_G);
 	if (Cur_Solution_Total_Distance < Current_Instance_Best_Distance_G[index])
@@ -184,6 +211,7 @@ __global__ void Local_Search_by_2Opt_Move_GPU(Struct_Node *Best_All_Node_G, doub
 		Current_Instance_Best_Distance_G[index] = Cur_Solution_Total_Distance;
 		Store_Best_Solution_GPU(index, Virtual_City_Num, Best_All_Node_G, All_Node_G);
 	}
+	//printf("ThreadID-3 = %d, Current_Instance_Best_Distance_G = %d. \n", index, Current_Instance_Best_Distance_G[index]);
 	//printf("%f\n", (double)Current_Instance_Best_Distance_G[index] / Magnify_Rate);
 }
 
@@ -313,7 +341,9 @@ __device__ int Choose_City_To_Connect_GPU(int Cur_City, int Begin_City, int rand
 	return Probabilistic_Get_City_To_Connect_GPU(randseed, threadid, Virtual_City_Num, Promising_City_Num_G, Probabilistic_G, Promising_City_G);
 }
 
-__device__ int Get_Simulated_Action_Delta_GPU(int Begin_City, int randseed, int *Probabilistic_G, int *Promising_City_G, int *Total_Simulation_Times_G, double *Avg_Weight_G, int *Candidate_G, int *Candidate_Num_G, int *Promising_City_Num_G, double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Distance_G, int Virtual_City_Num, int *Solution_G, int threadid, Struct_Node *All_Node_G, int *City_Sequence_G)
+__device__ int Get_Simulated_Action_Delta_GPU(int Begin_City, int randseed, int *Probabilistic_G, int *Promising_City_G, int *Total_Simulation_Times_G,
+ double *Avg_Weight_G, int *Candidate_G, int *Candidate_Num_G, int *Promising_City_Num_G, double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G,
+ int *Real_Gain_G, int *Gain_G, int *Distance_G, int Virtual_City_Num, int *Solution_G, int threadid, Struct_Node *All_Node_G, int *City_Sequence_G)
 {
 	// Store the current solution to Solution[]
 	if (Convert_All_Node_To_Solution_GPU(Virtual_City_Num, Solution_G, threadid, All_Node_G) == false)
@@ -333,39 +363,62 @@ __device__ int Get_Simulated_Action_Delta_GPU(int Begin_City, int randseed, int 
 
 	bool If_Changed = false;
 	int Cur_City = Next_City;
-	while (true)
+	//printf("Step 1 of Get_Simulated_Action_Delta_GPU. \n");
+	while (Pair_City_Num_G[threadid] < Max_Depth)
 	{
+		//printf("Step 2 of Get_Simulated_Action_Delta_GPU, %d. \n", Pair_City_Num_G[threadid]);
 		int Next_City_To_Connect = Choose_City_To_Connect_GPU(Cur_City, Begin_City, randseed, Probabilistic_G, Promising_City_G, Total_Simulation_Times_G, Chosen_Times_G, Avg_Weight_G, All_Node_G, Candidate_G, Candidate_Num_G, Promising_City_Num_G, threadid, Virtual_City_Num, Weight_G, Total_thread_num);
-		if (Next_City_To_Connect == Null)
+		//printf("%d, %d. \n", Next_City_To_Connect, Cur_City);
+		if (Next_City_To_Connect == Null )
 			break;
+		if (Next_City_To_Connect!=Cur_City){
+			//Update the chosen times, used in MCTS	
+			Chosen_Times_G[threadid * Total_thread_num + Cur_City * Virtual_City_Num + Next_City_To_Connect] ++;
+			Chosen_Times_G[threadid * Total_thread_num + Next_City_To_Connect * Virtual_City_Num + Cur_City] ++;
+			//printf("Step 3 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			int Next_City_To_Disconnect = All_Node_G[threadid * Virtual_City_Num + Next_City_To_Connect].Pre_City;
+			//printf("Step 4.1 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			City_Sequence_G[threadid * Virtual_City_Num + 2 * Pair_City_Num_G[threadid]] = Next_City_To_Connect;
+			City_Sequence_G[threadid * Virtual_City_Num + 2 * Pair_City_Num_G[threadid] + 1] = Next_City_To_Disconnect;
+			//printf("Step 4.2 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] = Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid] - 1] - Get_Distance_GPU(Cur_City, Next_City_To_Connect, Distance_G, Virtual_City_Num) + Get_Distance_GPU(Next_City_To_Connect, Next_City_To_Disconnect, Distance_G, Virtual_City_Num);
+			//printf("Step 4.3.1 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			//printf("Distance_G = %d, %d, %d, %d. \n", Next_City_To_Disconnect, Begin_City, Next_City_To_Connect, Cur_City);
+			Real_Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] = Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] - Get_Distance_GPU(Next_City_To_Disconnect, Begin_City, Distance_G, Virtual_City_Num);
+			//printf("Step 4.3.2 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			
+			//printf("Step 4.3.3 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			// Reverse the cities between b_i and b_{i+1}
+			Reverse_Sub_Path_GPU(Cur_City, Next_City_To_Disconnect, All_Node_G, threadid, Virtual_City_Num);
+			All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City = Next_City_To_Connect;
+			All_Node_G[threadid * Virtual_City_Num + Next_City_To_Connect].Pre_City = Cur_City;
+			All_Node_G[threadid * Virtual_City_Num + Next_City_To_Disconnect].Pre_City = Null;
+			If_Changed = true;
+			//printf("Step 5 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			// Turns to the next iteration
+			Cur_City = Next_City_To_Disconnect;
+		
 
-		//Update the chosen times, used in MCTS	
-		Chosen_Times_G[threadid * Total_thread_num + Cur_City * Virtual_City_Num + Next_City_To_Connect] ++;
-		Chosen_Times_G[threadid * Total_thread_num + Next_City_To_Connect * Virtual_City_Num + Cur_City] ++;
-
-		int Next_City_To_Disconnect = All_Node_G[threadid * Virtual_City_Num + Next_City_To_Connect].Pre_City;
-
-		City_Sequence_G[threadid * Virtual_City_Num + 2 * Pair_City_Num_G[threadid]] = Next_City_To_Connect;
-		City_Sequence_G[threadid * Virtual_City_Num + 2 * Pair_City_Num_G[threadid] + 1] = Next_City_To_Disconnect;
-		Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] = Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid] - 1] - Get_Distance_GPU(Cur_City, Next_City_To_Connect, Distance_G, Virtual_City_Num) + Get_Distance_GPU(Next_City_To_Connect, Next_City_To_Disconnect, Distance_G, Virtual_City_Num);
-		Real_Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] = Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid]] - Get_Distance_GPU(Next_City_To_Disconnect, Begin_City, Distance_G, Virtual_City_Num);
-		Pair_City_Num_G[threadid]++;
-
-		// Reverse the cities between b_i and b_{i+1}
-		Reverse_Sub_Path_GPU(Cur_City, Next_City_To_Disconnect, All_Node_G, threadid, Virtual_City_Num);
-		All_Node_G[threadid * Virtual_City_Num + Cur_City].Next_City = Next_City_To_Connect;
-		All_Node_G[threadid * Virtual_City_Num + Next_City_To_Connect].Pre_City = Cur_City;
-		All_Node_G[threadid * Virtual_City_Num + Next_City_To_Disconnect].Pre_City = Null;
-		If_Changed = true;
-
-		// Turns to the next iteration
-		Cur_City = Next_City_To_Disconnect;
-
-		// Close the loop is meeting an improving action, or the depth reaches its upper bound	
-		if (Real_Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid] - 1] > 0 || Pair_City_Num_G[threadid] > Max_Depth)
-			break;
+			// Close the loop is meeting an improving action, or the depth reaches its upper bound	
+			/*if (Real_Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid] - 1] > 0 || Pair_City_Num_G[threadid] > Max_Depth)
+				break;*/
+			if (Real_Gain_G[threadid * 2 * Virtual_City_Num + Pair_City_Num_G[threadid] - 1] > 0)
+				break;
+			//printf("Step 6 of Get_Simulated_Action_Delta_GPU. \n");
+			
+			Pair_City_Num_G[threadid]++;
+			
+		}
+		randseed = randseed * 2 + 1;
 	}
-
+	//printf("Step 7 of Get_Simulated_Action_Delta_GPU. \n");
 	// Restore the solution before simulation	
 	if (If_Changed)
 		Convert_Solution_To_All_Node_GPU(Virtual_City_Num, Solution_G, threadid, All_Node_G);
@@ -389,16 +442,21 @@ __device__ int Get_Simulated_Action_Delta_GPU(int Begin_City, int randseed, int 
 	return Max_Real_Gain;
 }
 
-__device__ int Simulation_GPU(int Max_Simulation_Times, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int threadid, int randseed, int Virtual_City_Num, int *Total_Simulation_Times_G, int *Probabilistic_G, int *Promising_City_G, double *Avg_Weight_G, int *Candidate_G, int *Candidate_Num_G, int *Promising_City_Num_G, double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Distance_G, int *Solution_G, Struct_Node *All_Node_G, int *City_Sequence_G)
+__device__ int Simulation_GPU(int Max_Simulation_Times, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int threadid, int randseed,
+ int Virtual_City_Num, int *Total_Simulation_Times_G, int *Probabilistic_G, int *Promising_City_G, double *Avg_Weight_G, int *Candidate_G,
+ int *Candidate_Num_G, int *Promising_City_Num_G, double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G,
+ int *Real_Gain_G, int *Gain_G, int *Distance_G, int *Solution_G, Struct_Node *All_Node_G, int *City_Sequence_G)
 {
 	int Best_Action_Delta = -Inf_Cost;
 	for (int i = 0; i < Max_Simulation_Times; i++)
 	{
+		//printf("Step 1 of Simulation_GPU. \n");
 		int Begin_City = Get_Random_Int_GPU(randseed, threadid, Virtual_City_Num);
+		//printf("Step 2 of Simulation_GPU. \n");
 		int Action_Delta = Get_Simulated_Action_Delta_GPU(Begin_City, randseed, Probabilistic_G, Promising_City_G, Total_Simulation_Times_G, Avg_Weight_G, Candidate_G, Candidate_Num_G, Promising_City_Num_G, Weight_G, Total_thread_num, Chosen_Times_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Distance_G, Virtual_City_Num, Solution_G, threadid, All_Node_G, City_Sequence_G);
-
+		
 		Total_Simulation_Times_G[threadid]++;
-
+		//printf("Step 3 of Simulation_GPU, Action_Delta=%d. \n", Action_Delta);
 		if (Action_Delta > Best_Action_Delta)
 		{
 			Best_Action_Delta = Action_Delta;
@@ -460,36 +518,58 @@ __device__ void Execute_Best_Action_GPU(int threadid, int Virtual_City_Num, int 
 
 		Cur_City = Next_City_To_Disconnect;
 	}
-
+	//printf("Execute_Best_Action_GPU. \n");
 	All_Node_G[threadid * Virtual_City_Num + Begin_City].Next_City = Cur_City;
 	All_Node_G[threadid * Virtual_City_Num + Cur_City].Pre_City = Begin_City;
 }
 
-__global__ void MCTS_GPU(int Virtual_City_Num, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, int *Distance_G, int *Current_Instance_Best_Distance_G, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int randseed, int *Total_Simulation_Times_G, int *Probabilistic_G, int *Promising_City_G, double *Avg_Weight_G, int *Candidate_G, int *Candidate_Num_G, int *Promising_City_Num_G, double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Solution_G, int *City_Sequence_G)
+__global__ void MCTS_GPU(int Threshold, int Virtual_City_Num, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, int *Distance_G,
+	int *Current_Instance_Best_Distance_G, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int randseed, int *Total_Simulation_Times_G,
+	int *Probabilistic_G, int *Promising_City_G, double *Avg_Weight_G, int *Candidate_G, int *Candidate_Num_G, int *Promising_City_Num_G,
+	double *Weight_G, int Total_thread_num, int *Chosen_Times_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Solution_G,
+	int *City_Sequence_G)
 {
 	int threadid = blockDim.x*blockIdx.x + threadIdx.x;
-	while (true)
+	//printf("Start to Run the MCTS_GPU. \n");
+	//int Threshold = 100;
+	int runNum = 0;
+	while (Threshold > runNum)
 	{
+		//printf("Step 1 of MCTS_GPU. \n");
 		int Before_Simulation_Distance = Get_Solution_Total_Distance_GPU(Distance_G, threadid, Virtual_City_Num, All_Node_G);
-
-		int Best_Delta = Simulation_GPU(Param_H*Virtual_City_Num, Temp_City_Sequence_G, Temp_Pair_Num_G, threadid, randseed, Virtual_City_Num, Total_Simulation_Times_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Candidate_G, Candidate_Num_G, Promising_City_Num_G, Weight_G, Total_thread_num, Chosen_Times_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Distance_G, Solution_G, All_Node_G, City_Sequence_G);
-
-		Back_Propagation_GPU(Before_Simulation_Distance, Best_Delta, Total_thread_num, threadid, Pair_City_Num_G, City_Sequence_G, Virtual_City_Num, Weight_G);
-
+		//printf("Step 2 of MCTS_GPU. \n");
+		int Best_Delta = Simulation_GPU(Param_H*Virtual_City_Num, Temp_City_Sequence_G, Temp_Pair_Num_G, threadid, randseed,
+			Virtual_City_Num, Total_Simulation_Times_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Candidate_G, Candidate_Num_G,
+			Promising_City_Num_G, Weight_G, Total_thread_num, Chosen_Times_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Distance_G,
+			Solution_G, All_Node_G, City_Sequence_G);
+		//printf("Step 3 of MCTS_GPU. \n");
+		Back_Propagation_GPU(Before_Simulation_Distance, Best_Delta, Total_thread_num, threadid, Pair_City_Num_G, City_Sequence_G,
+			Virtual_City_Num, Weight_G);
+		//printf("Step 4 of MCTS_GPU, Best_Delta=%d. \n", Best_Delta);
 		if (Best_Delta > 0)
 		{
+			//printf("Step 4 of MCTS_GPU, Best_Delta=%d. \n", Best_Delta);
+			//printf("Step 5 of MCTS_GPU. \n");
 			Execute_Best_Action_GPU(threadid, Virtual_City_Num, City_Sequence_G, All_Node_G, Pair_City_Num_G);
+			//printf("Step 6 of MCTS_GPU. \n");
 			int Cur_Solution_Total_Distance = Get_Solution_Total_Distance_GPU(Distance_G, threadid, Virtual_City_Num, All_Node_G);
+			//printf("Step 7 of MCTS_GPU. \n");
 			if (Cur_Solution_Total_Distance < Current_Instance_Best_Distance_G[threadid])
 			{
+				//printf("Step 8 of MCTS_GPU, L0=%d, L1=%d, L2=%d. \n", Before_Simulation_Distance, Cur_Solution_Total_Distance, Current_Instance_Best_Distance_G[threadid]);
 				Current_Instance_Best_Distance_G[threadid] = Cur_Solution_Total_Distance;
 				Store_Best_Solution_GPU(threadid, Virtual_City_Num, Best_All_Node_G, All_Node_G);
+				
+				//printf("Update %d .\n", Current_Instance_Best_Distance_G[threadid]);
 			}
 		}
 		else
 			break;
+		runNum += 1;
 	}
-	//printf("%f\n", (double)Current_Instance_Best_Distance_G[threadid] / Magnify_Rate);
+	//printf("MCTS_GPU. \n");
+	if ((double)Current_Instance_Best_Distance_G[threadid] / Magnify_Rate < 0.5)
+		printf("%f\n", (double)Current_Instance_Best_Distance_G[threadid] / Magnify_Rate);
 }
 
 __device__ void Restore_Best_Solution_GPU(int threadid, int Virtual_City_Num, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G)
@@ -508,7 +588,8 @@ __device__ double Calculate_Double_Distance_GPU(int First_City, int Second_City,
 		(Coordinate_Y_G[First_City] - Coordinate_Y_G[Second_City])*(Coordinate_Y_G[First_City] - Coordinate_Y_G[Second_City]));
 }
 
-__device__ double Get_Current_Solution_Double_Distance_GPU(int threadid, int Virtual_City_Num, Struct_Node *All_Node_G, double *Coordinate_X_G, double *Coordinate_Y_G)
+__device__ double Get_Current_Solution_Double_Distance_GPU(int threadid, int Virtual_City_Num, Struct_Node *All_Node_G,
+ double *Coordinate_X_G, double *Coordinate_Y_G)
 {
 	double Current_Solution_Double_Distance = 0;
 	for (int i = 0; i<Virtual_City_Num; i++)
@@ -526,25 +607,15 @@ __device__ double Get_Current_Solution_Double_Distance_GPU(int threadid, int Vir
 	return Current_Solution_Double_Distance;
 }
 
-__global__ void Restore_Best_Solution_And_Calculate_Result_GPU(double *Current_Solution_Double_Distance_G, int Virtual_City_Num, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, double *Coordinate_X_G, double *Coordinate_Y_G)
+__global__ void Restore_Best_Solution_And_Calculate_Result_GPU(double *Current_Solution_Double_Distance_G, int Virtual_City_Num, 
+	Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, double *Coordinate_X_G, double *Coordinate_Y_G)
 {
 	int threadid = blockDim.x * blockIdx.x + threadIdx.x;
 	Restore_Best_Solution_GPU(threadid, Virtual_City_Num, Best_All_Node_G, All_Node_G);
-	Current_Solution_Double_Distance_G[threadid] = Get_Current_Solution_Double_Distance_GPU(threadid, Virtual_City_Num, All_Node_G, Coordinate_X_G, Coordinate_Y_G);
+	Current_Solution_Double_Distance_G[threadid] = Get_Current_Solution_Double_Distance_GPU(threadid, Virtual_City_Num,
+													All_Node_G, Coordinate_X_G, Coordinate_Y_G);
+	//printf("%d = Best-Result = %f \n", threadid, Current_Solution_Double_Distance_G[threadid]);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -554,14 +625,31 @@ __global__ void test_device(int randseed, int Virtual_City_Num)
 	Get_Random_Int_GPU(randseed, threadid, Virtual_City_Num);
 }
 
-extern "C" void Init_GPU(int *Current_Instance_Best_Distance_G, double *Weight_G, int *Chosen_Times_G, int *Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num)
+extern "C" void Init_GPU(double* Edge_Heatmap_G, int *Current_Instance_Best_Distance_G, double *Weight_G, int *Chosen_Times_G,
+	int *Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num)
 {
-	MCTS_Init_GPU << <block_num, thread_per_block >> > (Current_Instance_Best_Distance_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G, Virtual_City_Num, Total_thread_num);
+	
+	MCTS_Init_GPU << <block_num, thread_per_block >> > (Edge_Heatmap_G, Current_Instance_Best_Distance_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G, Virtual_City_Num, Total_thread_num);
+	
 }
 
-extern "C" void Excute_GPU(int randseed, int *Distance_G, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, double* Weight_G, int* Chosen_Times_G, int* Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num, int *Candidate_G, int *Candidate_Num_G, int *Current_Instance_Best_Distance_G, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int *Probabilistic_G, int *Promising_City_G, double *Avg_Weight_G, int *Promising_City_Num_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Solution_G, int *City_Sequence_G, double *Current_Solution_Double_Distance_G, double *Coordinate_X_G, double *Coordinate_Y_G)
+extern "C" void Excute_GPU(int randseed, int Threshold, int *Distance_G, Struct_Node *Best_All_Node_G, Struct_Node *All_Node_G, double* Weight_G,
+	int* Chosen_Times_G, int* Total_Simulation_Times_G, int Virtual_City_Num, int Total_thread_num, int *Candidate_G, int *Candidate_Num_G,
+	int *Current_Instance_Best_Distance_G, int *Temp_City_Sequence_G, int *Temp_Pair_Num_G, int *Probabilistic_G, int *Promising_City_G,
+	double *Avg_Weight_G, int *Promising_City_Num_G, int *Pair_City_Num_G, int *Real_Gain_G, int *Gain_G, int *Solution_G,
+	int *City_Sequence_G, double *Current_Solution_Double_Distance_G, double *Coordinate_X_G, double *Coordinate_Y_G)
 {
-	Local_Search_by_2Opt_Move_GPU << <block_num, thread_per_block >> > (Best_All_Node_G, Weight_G, Distance_G, Total_Simulation_Times_G, Virtual_City_Num, Candidate_Num_G, Candidate_G, Total_thread_num, All_Node_G, Chosen_Times_G, Current_Instance_Best_Distance_G);
-	MCTS_GPU << <block_num, thread_per_block >> > (Virtual_City_Num, Best_All_Node_G, All_Node_G, Distance_G, Current_Instance_Best_Distance_G, Temp_City_Sequence_G, Temp_Pair_Num_G, randseed, Total_Simulation_Times_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Candidate_G, Candidate_Num_G, Promising_City_Num_G, Weight_G, Total_thread_num, Chosen_Times_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Solution_G, City_Sequence_G);
-	Restore_Best_Solution_And_Calculate_Result_GPU << <block_num, thread_per_block >> > (Current_Solution_Double_Distance_G, Virtual_City_Num, Best_All_Node_G, All_Node_G, Coordinate_X_G, Coordinate_Y_G);
+	Local_Search_by_2Opt_Move_GPU << <block_num, thread_per_block >> > (Best_All_Node_G, Weight_G, Distance_G, Total_Simulation_Times_G,
+		Virtual_City_Num, Candidate_Num_G, Candidate_G, Total_thread_num, All_Node_G, Chosen_Times_G, Current_Instance_Best_Distance_G);
+	//printf("Local_Search_by_2Opt_Move_GPU. \n");
+	
+	MCTS_GPU << <block_num, thread_per_block >> > (Threshold, Virtual_City_Num, Best_All_Node_G, All_Node_G, Distance_G, Current_Instance_Best_Distance_G,
+		Temp_City_Sequence_G, Temp_Pair_Num_G, randseed, Total_Simulation_Times_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Candidate_G,
+		Candidate_Num_G, Promising_City_Num_G, Weight_G, Total_thread_num, Chosen_Times_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Solution_G,
+		City_Sequence_G);
+	//printf("MCTS_GPU. \n");
+	
+	Restore_Best_Solution_And_Calculate_Result_GPU << <block_num, thread_per_block >> > (Current_Solution_Double_Distance_G, Virtual_City_Num,
+		Best_All_Node_G, All_Node_G, Coordinate_X_G, Coordinate_Y_G);
+	//printf("Restore_Best_Solution_And_Calculate_Result_GPU. \n");
 }

@@ -8,6 +8,7 @@
 Struct_Node *All_Node_H;
 int Total_thread_num;
 
+double *Edge_Heatmap_G, *Edge_Heatmap_H;
 double *Weight_G, *Weight_H;
 int *Chosen_Times_G, *Chosen_Times_H;
 int *Total_Simulation_Times_G, *Total_Simulation_Times_H;
@@ -51,11 +52,14 @@ double *Coordinate_Y_G;
 
 void Copy_AllNode_to_All_Node_H(int threadid)
 {
+	//cout<<"New-route : "<<endl;
 	for (int i = 0; i < Virtual_City_Num; i++)
 	{
 		All_Node_H[threadid*Virtual_City_Num + i].Salesman = All_Node[i].Salesman;
 		All_Node_H[threadid*Virtual_City_Num + i].Next_City = All_Node[i].Next_City;
 		All_Node_H[threadid*Virtual_City_Num + i].Pre_City = All_Node[i].Pre_City;
+		if (All_Node_H[threadid*Virtual_City_Num + i].Pre_City==-1)
+			cout<<All_Node_H[threadid*Virtual_City_Num + i].Salesman<<", "<<All_Node_H[threadid*Virtual_City_Num + i].Next_City<<", "<<All_Node_H[threadid*Virtual_City_Num + i].Pre_City<<endl;
 	}
 }
 
@@ -67,17 +71,25 @@ void Copy_Candidate_to_Candidate_H(int threadid)
 		{
 			Candidate_H[threadid*Total_thread_num + i*Max_Candidate_Num + j] = Candidate[i][j];
 		}
+		Candidate_Num_H[threadid*Virtual_City_Num + i] = Candidate_Num[i];
+		//cout<<"Candidate_Num_H"<<Candidate_Num_H[threadid*Virtual_City_Num + i]<<endl;
 	}
 }
 
 void Copy_Distance_to_Distance_H()
 {
+	//cout<<"Dist : ";
 	for (int i = 0; i < Virtual_City_Num; i++)
 	{
+		
 		for (int j = 0; j < Virtual_City_Num; j++)
 		{
 			Distance_H[i*Virtual_City_Num + j] = Distance[i][j];
+			//cout<<Distance_H[i*Virtual_City_Num + j]<<" ";
+			Edge_Heatmap_H[i*Virtual_City_Num + j] = Edge_Heatmap[i][j];
 		}
+		
+		//cout<<endl;
 	}
 }
 
@@ -90,6 +102,8 @@ void Copy_Coordinate_to_Coordinate_H()
 	}
 }
 
+//void Copy_Ca
+
 void Copy_Data_to_GPU()
 {
 	for (int i = 0; i < Total_thread_num; i++)
@@ -98,6 +112,7 @@ void Copy_Data_to_GPU()
 	}
 	Copy_Distance_to_Distance_H();
 	Copy_Coordinate_to_Coordinate_H();
+	//cout<<"Copy_Data_to_GPU"<<endl;
 }
 
 void Generate_Multi_Solution()
@@ -107,6 +122,7 @@ void Generate_Multi_Solution()
 		Generate_Initial_Solution();
 		Copy_AllNode_to_All_Node_H(i);
 	}
+	//cout<<"Generate_Multi_Solution"<<endl;
 }
 
 void Print_Solution(int thread_index)
@@ -154,7 +170,10 @@ void cuda_mem_malloc()
 	Current_Instance_Best_Distance_H = new int[Total_thread_num];
 	Candidate_Num_H = new int[Total_thread_num * Virtual_City_Num];
 	Candidate_H = new int[Total_thread_num * Virtual_City_Num * Max_Candidate_Num];
+	
 	Distance_H = new int[Virtual_City_Num * Virtual_City_Num];
+	Edge_Heatmap_H = new double[Virtual_City_Num * Virtual_City_Num];
+	
 	Best_All_Node_H = new Struct_Node[Total_thread_num * Virtual_City_Num];
 	Solution_H = new int[Total_thread_num * Virtual_City_Num];
 	City_Sequence_H = new int[Total_thread_num * Virtual_City_Num];
@@ -178,7 +197,10 @@ void cuda_mem_malloc()
 	cudaMalloc((void**)&Current_Instance_Best_Distance_G, Total_thread_num * sizeof(int));
 	cudaMalloc((void**)&Candidate_Num_G, Total_thread_num * Virtual_City_Num * sizeof(int));
 	cudaMalloc((void**)&Candidate_G, Total_thread_num * Virtual_City_Num * Max_Candidate_Num * sizeof(int));
+	
 	cudaMalloc((void**)&Distance_G, Virtual_City_Num * Virtual_City_Num * sizeof(int));
+	cudaMalloc((void**)&Edge_Heatmap_G, Virtual_City_Num * Virtual_City_Num * sizeof(double));
+	
 	cudaMalloc((void**)&Best_All_Node_G, Total_thread_num * Virtual_City_Num * sizeof(Struct_Node));
 	cudaMalloc((void**)&Solution_G, Total_thread_num * Virtual_City_Num * sizeof(int));
 	cudaMalloc((void**)&City_Sequence_G, Total_thread_num * Virtual_City_Num * sizeof(int));
@@ -194,12 +216,14 @@ void cuda_mem_malloc()
 	cudaMalloc((void**)&Current_Solution_Double_Distance_G, Total_thread_num * sizeof(double));
 	cudaMalloc((void**)&Coordinate_X_G, Virtual_City_Num * sizeof(double));
 	cudaMalloc((void**)&Coordinate_Y_G, Virtual_City_Num * sizeof(double));
-
+	
+	//cout<<"cuda_mem_malloc"<<endl;
 }
 
 void Transfer_All_Node_to_GPU()
 {
 	cudaMemcpy((void*)All_Node_G, (void *)All_Node_H, Total_thread_num * Virtual_City_Num * sizeof(Struct_Node), cudaMemcpyHostToDevice);
+	//printf("Transfer_All_Node_to_GPU\n");
 }
 
 void Transfer_CPU_to_GPU()
@@ -211,7 +235,10 @@ void Transfer_CPU_to_GPU()
 	cudaMemcpy((void*)Current_Instance_Best_Distance_G, (void *)Current_Instance_Best_Distance_H, Total_thread_num * sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)Candidate_Num_G, (void *)Candidate_Num_H, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)Candidate_G, (void *)Candidate_H, Total_thread_num * Virtual_City_Num * Max_Candidate_Num * sizeof(int), cudaMemcpyHostToDevice);
+	
 	cudaMemcpy((void*)Distance_G, (void *)Distance_H, Virtual_City_Num * Virtual_City_Num * sizeof(int), cudaMemcpyHostToDevice);
+	cudaMemcpy((void*)Edge_Heatmap_G, (void *)Edge_Heatmap_H, Virtual_City_Num * Virtual_City_Num * sizeof(double), cudaMemcpyHostToDevice);
+	
 	cudaMemcpy((void*)Best_All_Node_G, (void *)Best_All_Node_H, Total_thread_num * Virtual_City_Num * sizeof(Struct_Node), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)Solution_G, (void *)Solution_H, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)City_Sequence_G, (void *)City_Sequence_H, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyHostToDevice);
@@ -227,6 +254,8 @@ void Transfer_CPU_to_GPU()
 	cudaMemcpy((void*)Current_Solution_Double_Distance_G, (void *)Current_Solution_Double_Distance_H, Total_thread_num * sizeof(double), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)Coordinate_X_G, (void *)Coordinate_X_H, Virtual_City_Num * sizeof(double), cudaMemcpyHostToDevice);
 	cudaMemcpy((void*)Coordinate_Y_G, (void *)Coordinate_Y_H, Virtual_City_Num * sizeof(double), cudaMemcpyHostToDevice);
+	
+	//cout<<"Transfer_CPU_to_GPU"<<endl;
 
 }
 
@@ -239,7 +268,10 @@ void deal_with_cuda_result()
 	cudaMemcpy((void*)Current_Instance_Best_Distance_H, (void *)Current_Instance_Best_Distance_G, Total_thread_num * sizeof(int), cudaMemcpyDeviceToHost);
 	cudaMemcpy((void*)Candidate_Num_H, (void *)Candidate_Num_G, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyDeviceToHost);
 	cudaMemcpy((void*)Candidate_H, (void *)Candidate_G, Total_thread_num * Virtual_City_Num * Max_Candidate_Num * sizeof(int), cudaMemcpyDeviceToHost);
-	cudaMemcpy((void*)Distance_H, (void *)Distance_G, Total_thread_num * Virtual_City_Num * Max_Candidate_Num * sizeof(int), cudaMemcpyDeviceToHost);
+	
+	cudaMemcpy((void*)Distance_H, (void *)Distance_G, Virtual_City_Num * Virtual_City_Num * sizeof(int), cudaMemcpyDeviceToHost);
+	cudaMemcpy((void*)Edge_Heatmap_H, (void *)Edge_Heatmap_G, Virtual_City_Num * Virtual_City_Num * sizeof(double), cudaMemcpyDeviceToHost);
+	
 	cudaMemcpy((void*)Best_All_Node_H, (void *)Best_All_Node_G, Total_thread_num * Virtual_City_Num * sizeof(Struct_Node), cudaMemcpyDeviceToHost);
 	cudaMemcpy((void*)Solution_H, (void *)Solution_G, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyDeviceToHost);
 	cudaMemcpy((void*)City_Sequence_H, (void *)City_Sequence_G, Total_thread_num * Virtual_City_Num * sizeof(int), cudaMemcpyDeviceToHost);
@@ -263,7 +295,10 @@ void deal_with_cuda_result()
 	cudaFree(Current_Instance_Best_Distance_G);
 	cudaFree(Candidate_Num_G);
 	cudaFree(Candidate_G);
+	
 	cudaFree(Distance_G);
+	cudaFree(Edge_Heatmap_G);
+	
 	cudaFree(Best_All_Node_G);
 	cudaFree(Solution_G);
 	cudaFree(City_Sequence_G);
@@ -279,7 +314,9 @@ void deal_with_cuda_result()
 	cudaFree(Current_Solution_Double_Distance_G);
 	cudaFree(Coordinate_X_G);
 	cudaFree(Coordinate_Y_G);
-
+	
+	
+	//cout<<"deal_with_cuda_result"<<endl;
 	//delete[] Total_Simulation_Times_H;
 }
 
@@ -317,7 +354,10 @@ void Free_H_Mem()
 	delete[] Current_Instance_Best_Distance_H;
 	delete[] Candidate_Num_H;
 	delete[] Candidate_H;
+	
 	delete[] Distance_H;
+	delete[] Edge_Heatmap_H;
+	
 	delete[] Best_All_Node_H;
 	delete[] Solution_H;
 	delete[] City_Sequence_H;
@@ -337,19 +377,27 @@ void Free_H_Mem()
 
 void Markov_Decision_Process_GPU()
 {
+	
 	cuda_mem_malloc();//GPU
+	
 	Copy_Data_to_GPU();
 	Transfer_CPU_to_GPU();
-	Init_GPU(Current_Instance_Best_Distance_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G, Virtual_City_Num, Total_thread_num);
+	Init_GPU(Edge_Heatmap_G, Current_Instance_Best_Distance_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G,
+				Virtual_City_Num, Total_thread_num);
 	cudaDeviceSynchronize();
-	/*while (((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC<Param_T*Virtual_City_Num)
-	{*/
+	Current_Instance_Begin_Time = (double)clock();
+	while (((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC<Param_T*Virtual_City_Num)
+	{
 	Generate_Multi_Solution();
 	Transfer_All_Node_to_GPU();
-
+	cudaDeviceSynchronize();
 	int randseed = rand() % 10000;
-	Excute_GPU(randseed, Distance_G, Best_All_Node_G, All_Node_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G, Virtual_City_Num, Total_thread_num, Candidate_G, Candidate_Num_G, Current_Instance_Best_Distance_G, Temp_City_Sequence_G, Temp_Pair_Num_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Promising_City_Num_G, Pair_City_Num_G, Real_Gain_G, Gain_G, Solution_G, City_Sequence_G, Current_Solution_Double_Distance_G, Coordinate_X_G, Coordinate_Y_G);
-	//}
+	
+	Excute_GPU(randseed, Threshold, Distance_G, Best_All_Node_G, All_Node_G, Weight_G, Chosen_Times_G, Total_Simulation_Times_G,
+			Virtual_City_Num, Total_thread_num, Candidate_G, Candidate_Num_G, Current_Instance_Best_Distance_G, Temp_City_Sequence_G,
+			Temp_Pair_Num_G, Probabilistic_G, Promising_City_G, Avg_Weight_G, Promising_City_Num_G, Pair_City_Num_G, Real_Gain_G, Gain_G,
+			Solution_G, City_Sequence_G, Current_Solution_Double_Distance_G, Coordinate_X_G, Coordinate_Y_G);
+	}
 	//Markov_Decision_Process();
 	deal_with_cuda_result();
 }

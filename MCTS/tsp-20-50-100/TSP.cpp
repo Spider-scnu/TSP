@@ -6,11 +6,13 @@
 #include "include/TSP_Markov_Decision.h"
 #include "Extra.h"
 #include "kernel.h"
+#include <pthread.h>
+#include <cuda.h>
 
 // For TSP20-50-100 instances
 void Solve_One_Instance(int Inst_Index)
 {
-	Current_Instance_Begin_Time = (double)clock();
+	
 	Current_Instance_Best_Distance = Inf_Cost;
 
 	// Input
@@ -22,9 +24,13 @@ void Solve_One_Instance(int Inst_Index)
 	Calculate_All_Pair_Distance();
 
 	//cout<<"Step3"<<endl;
+	Set_Heapmap_Fine_Name(Inst_Index);  	 	
+  	Read_Heatmap(); 
+	
 	Identify_Candidate_Set();
 	
 	//cout<<"Step4"<<endl;
+	
 	Markov_Decision_Process_GPU();
 
 
@@ -48,13 +54,17 @@ void Solve_One_Instance(int Inst_Index)
 	Sum_My_Distance += Current_Solution_Double_Distance / Magnify_Rate;
 	Sum_Gap += (Current_Solution_Double_Distance - Stored_Solution_Double_Distance) / Stored_Solution_Double_Distance;
 
-	printf("\nInst_Index:%d Concorde Distance:%f, MCTS Distance:%f Improve:%f Time:%.2f Seconds\n", Inst_Index + 1, Stored_Solution_Double_Distance / Magnify_Rate,
-		Current_Solution_Double_Distance / Magnify_Rate, Stored_Solution_Double_Distance / Magnify_Rate - Current_Solution_Double_Distance / Magnify_Rate, ((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC);
+	printf("\nInst_Index:%d Concorde Distance:%f, MCTS Distance:%f Improve:%f Time:%.2f Seconds\n", Inst_Index + 1,
+			Stored_Solution_Double_Distance / Magnify_Rate,
+			Current_Solution_Double_Distance / Magnify_Rate, Stored_Solution_Double_Distance / Magnify_Rate - Current_Solution_Double_Distance / Magnify_Rate,
+			((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC);
 
 	FILE *fp;
 	fp = fopen(Statistics_File_Name, "a+");
-	fprintf(fp, "\nInst_Index:%d \t City_Num:%d \t Concorde:%f \t MCTS:%f Improve:%f \t Time:%.2f Seconds\n", Inst_Index + 1, Virtual_City_Num, Stored_Solution_Double_Distance / 1000000,
-		Current_Solution_Double_Distance / Magnify_Rate, Stored_Solution_Double_Distance / Magnify_Rate - Current_Solution_Double_Distance / Magnify_Rate, ((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC);
+	fprintf(fp, "\nInst_Index:%d \t City_Num:%d \t Concorde:%f \t MCTS:%f Improve:%f \t Time:%.2f Seconds\n", Inst_Index + 1,
+			Virtual_City_Num, Stored_Solution_Double_Distance / 1000000,
+			Current_Solution_Double_Distance / Magnify_Rate, Stored_Solution_Double_Distance / Magnify_Rate - Current_Solution_Double_Distance / Magnify_Rate,
+			((double)clock() - Current_Instance_Begin_Time) / CLOCKS_PER_SEC);
 
 	fprintf(fp, "Solution: ");
 	int Cur_City = Start_City;
@@ -71,6 +81,7 @@ void Solve_One_Instance(int Inst_Index)
 	exit(1);*/
 	//Release_Memory(Virtual_City_Num);
 	Free_H_Mem();
+	//cout<<"Free_H_Mem"<<endl;
 }
 
 bool Solve_Instances_In_Batch()
@@ -131,7 +142,10 @@ bool Solve_Instances_In_Batch()
 	
 	//cout<<"FP"<<endl;
 	for (int i = Index_In_Batch*Inst_Num_Per_Batch; i<(Index_In_Batch + 1)*Inst_Num_Per_Batch && i<Total_Instance_Num; i++)
-		Solve_One_Instance(i);
+		{
+			Solve_One_Instance(i);
+			//printf("Instance-%d is solved.\n", i);
+		}
 
 	return true;
 }
@@ -139,18 +153,19 @@ bool Solve_Instances_In_Batch()
 int main(int argc, char ** argv)
 {
 	double Overall_Begin_Time = (double)clock();
-
+	
 	//srand(Random_Seed);
 	srand(time(NULL));
-
+	int gpu;
 	for (int i = 0; i < 1; i++)
 	{
-		Index_In_Batch = i;
-		Statistics_File_Name = argv[1]; //"../results/result_20.txt";
-		Input_File_Name = argv[2]; //"../instances/tsp20_test_concorde.txt";
-		Temp_City_Num = atoi(argv[3]); //20;
+		Index_In_Batch = atoi(argv[1]); //i;
+		Statistics_File_Name = argv[2]; //"../results/result_20.txt";
+		Input_File_Name = argv[3]; //"../instances/tsp20_test_concorde.txt";
+		Temp_City_Num = atoi(argv[4]); //20;
+		gpu = atoi(argv[5]);
 	}
-
+	cudaSetDevice(gpu);
 	Solve_Instances_In_Batch();
 
 	FILE *fp;

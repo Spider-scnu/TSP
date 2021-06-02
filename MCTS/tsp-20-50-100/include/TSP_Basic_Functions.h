@@ -205,8 +205,13 @@ void Identify_Candidate_Set()
 				Candidate[i][Candidate_Num[i]++] = Neareast_Unselected_City;
 				If_City_Selected[Neareast_Unselected_City] = true;
 			}
+	
 		}
+		//cout<<"Candidate_Num = "<<Candidate_Num[i]<<endl;
+		//Candidate_Num[i] = 0;
+		//printf("Candidate_Num[%d] = %d\n", i, Candidate_Num[i]);
 	}
+	//cout<<"Max_Candidate_Num = "<<Max_Candidate_Num<<endl;
 }
 
 bool Check_If_Two_City_Same_Or_Adjacent(int First_City, int Second_City)

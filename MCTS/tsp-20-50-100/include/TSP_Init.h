@@ -32,6 +32,7 @@ bool Generate_Initial_Solution()
 
 	Solution[Selected_City_Num++] = Cur_City;
 	If_City_Selected[Cur_City] = true;
+	//cout<<"Route : "<<Cur_City;
 	do
 	{
 		Next_City = Select_Random_City(Cur_City);
@@ -40,9 +41,10 @@ bool Generate_Initial_Solution()
 			Solution[Selected_City_Num++] = Next_City;
 			If_City_Selected[Next_City] = true;
 			Cur_City = Next_City;
+			//cout<<" - "<<Cur_City;
 		}
 	} while (Next_City != Null);
-
+	//cout<<endl;
 	Convert_Solution_To_All_Node();
 	return Check_Solution_Feasible();
 }
