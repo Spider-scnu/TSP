@@ -66,7 +66,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 * ***Testset:*** Our metdod is tested on some datasets respectively, **TSP-20-50-100**, **TSP-200-500-100** and **TSP-10000** which could be downloaded from:
   * [TSP-20-50-100-testset-downloading-link](https://drive.google.com/file/d/1lmQh1SYFlcaEcvWdKZBs30GyYL-m21nb/view?usp=sharing)
-  * [TSP-200-500-1000-testset-downloading-link](https://drive.google.com/file/d/1HUp-IDM077Xx11U8fJxmPGPJNnLwYxbT/view?usp=sharing)
+  * [TSP-200-500-1000-testset-downloading-link](https://drive.google.com/file/d/10vIDikHjvJ4WjpU3VXrIshhl6iVwohIh/view?usp=sharing)
   * [TSP-10000-testset-downloading-link](https://drive.google.com/file/d/1u0jvUSbU-cO0oXOt_JyyXElUtE9uWvNg/view?usp=sharing)
 
   After decompressing datasets, you can copy them into directories respectively, `./MCTS/tsp-20-50-100`, `./MCTS/tsp-200-500-1000` and `./MCTS/tsp-10000`. Besides, you can copy them into directories `./Att-GraphConvNet/data`.
