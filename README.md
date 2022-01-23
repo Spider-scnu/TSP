@@ -25,7 +25,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
   * scipy
   * pyconcorde
 * gcc >= 4.8.5
-* CUDA = 8.0
+* CUDA = 9.0
 * Computing platform : Linux
 
 
