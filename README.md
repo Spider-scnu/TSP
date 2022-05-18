@@ -1,4 +1,4 @@
-# AAAI2021
+# Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances
 
 This reposity is the source code for solving the **Traveling Salesman Problems (TSP)** using **Monte Carlo tree search (MCTS)** assisted by **Graph Convolutional Network with attention mechanism (Att-GraphConvNet)**.
 
