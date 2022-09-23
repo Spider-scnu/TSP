@@ -4,7 +4,7 @@ This reposity is the source code for solving the **Traveling Salesman Problems (
 
 ### Paper
 
-* If you want to get more details, please see our paper ["Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances"](https://arxiv.org/abs/2012.10658) by Zhang-Hua Fu (1,2), Kai-Bin Qiu (2) and Hongyuan Zha (1,2), which is accepted by **AAAI2021**. 
+* If you want to get more details, please see our paper ["Generalize a Small Pre-trained Model to Arbitrarily Large TSP Instances"](https://arxiv.org/abs/2012.10658) by Zhang-Hua Fu (1,2), Kai-Bin Qiu (2) and Hongyuan Zha (1,2), which is accepted by **AAAI2021**. In addition, our full version has been submitted in [this reposity](https://github.com/Spider-scnu/TSP/blob/master/Generalize%20a%20Small%20Pre-trained%20Model%20to%20Arbitrarily%20Large%20TSP%20Instances%20---%20Full%20version.pdf). 
 
    1 **Shenzhen Institute of Artificial Intelligence and Robotics for Society, Shenzhen, China**
 
